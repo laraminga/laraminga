@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "La Raminga · Valentina's home cooking",
-    "description": "Home restaurant, private chef and ready meals in Lunigiana, Italy. Seasonal, handmade dishes from the garden."
+    "description": "Home restaurant, private chef and meals to take home in Lunigiana, Italy. Seasonal, handmade dishes straight from the garden."
   },
   "nav": {
     "about": "About",
@@ -14,22 +14,22 @@
   "hero": {
     "kicker": "home restaurant in Lunigiana, Italy",
     "title": "la raminga",
-    "subtitle": "Seasonal, handmade cooking, told around the table with you. Pasta rolled by hand, vegetables from the garden behind the house, Italian flavours meeting scents picked up while travelling. A few seats, time for a chat. More an experience than a dinner.",
+    "subtitle": "Seasonal, handmade cooking, shared around the table. Hand-rolled pasta, vegetables straight from the garden out back, Italian flavours mingling with scents I've picked up travelling. A few seats, plenty of time to talk. More of an experience than a dinner.",
     "cta": "Get in touch",
-    "secondary": "Discover the food"
+    "secondary": "See what's cooking"
   },
   "about": {
     "title": "Hi, I'm Valentina",
-    "p1": "I grew up in Bergamo, traveled a lot, and now live in Lunigiana. I've worked for years as a cook and in many other jobs, but cooking is the thing that's always with me, whether I'm happy, sad, in a tent over a fire, or on holiday.",
-    "p2": "La Raminga is how I open my home to people who want to eat well and stop for a chat. No restaurant, no big numbers, just careful dishes, a few seats, and time at the table.",
-    "p3": "I'm vegetarian, but I cook meat and fish too: at my table you'll find everything."
+    "p1": "I grew up in Bergamo, travelled a lot, and now I live in Lunigiana. I've worked as a cook for years, with plenty of other jobs in between, but cooking is the one thing I always come back to: when I'm happy, when I'm sad, in a tent over a fire, on holiday, anywhere.",
+    "p2": "La Raminga is my way of opening my home to people who want to eat well and stick around for a chat. No restaurant, no big numbers: just thoughtful cooking, a few seats, and time at the table.",
+    "p3": "I'm vegetarian myself, but I cook meat and fish too. At my table you'll find a bit of everything."
   },
   "cuisine": {
     "title": "How I cook",
-    "lead": "Tasty, colourful, handmade. Seasonal and local whenever I can.",
-    "body1": "Everything is by hand: fresh pasta, ravioli, gnocchi, focaccia, crackers, baked desserts and crêpes. Vegetables lead the menu: wild herbs and the garden behind the house decide what goes on the table that week, alongside whatever idea I'm playing with.",
-    "body2": "I love mixing the Italian dishes I grew up with (parmigiana, pasta alla Norma, lemon risotto) with more Asian flavours: ginger, soy, grains, legumes. Once in a while I invent a themed evening: spicy dinner, vegetarian burger night, big shared plates with focaccia and fried polenta to mop up the sauce.",
-    "body3": "Vegan menus aren't a problem, gluten-free we can work out together, and I handle intolerances easily. For serious allergies though, I can't promise an allergen-free kitchen, so let me know in advance."
+    "lead": "Bold, colourful, handmade. Seasonal, and as close to home as I can manage.",
+    "body1": "Everything's made by hand: fresh pasta, ravioli, gnocchi, focaccia, crackers, baked desserts, crêpes. Vegetables lead the way. The wild herbs and whatever's ready in the garden out back set the menu for the week, along with whatever idea I happen to be chasing.",
+    "body2": "I love mixing the Italian dishes I grew up with (parmigiana, pasta alla Norma, lemon risotto) with flavours from further east: ginger, soy, grains, legumes. Every now and then I'll throw a themed night: a full-on spicy dinner, a vegetarian burger evening, or a big shared spread with focaccia and fried polenta for mopping up the sauce.",
+    "body3": "Vegan menus are no problem. Gluten-free, we can work out together. Intolerances I can handle. For serious allergies, though, I can't guarantee an allergen-free kitchen, so it helps to give me a heads-up in advance."
   },
   "services": {
     "title": "What I cook",
@@ -37,36 +37,36 @@
     "items": [
       {
         "title": "Home restaurant",
-        "body": "Come for dinner. Indoor dining room when it's cold, terrace with mountain view when the sun is out. Up to eight guests.",
+        "body": "Come over for dinner. Indoors when it's cold, out on the terrace with a mountain view when the weather plays along. Up to eight guests.",
         "details": [
           "Friday and Saturday, around 8 pm",
-          "Weekly four-course menu",
-          "Half a litre of wine, water, coffee, amaro included",
-          "Pets welcome (let me know in advance)",
+          "A new four-course menu every week",
+          "Half a litre of wine, water, coffee and amaro included",
+          "Pets welcome (just let me know in advance)",
           "€30–40 per person"
         ],
         "cta": "Reserve a seat"
       },
       {
         "title": "Private chef",
-        "body": "I come to you. I shop, cook, serve, wash up and tidy. You only think about your guests.",
+        "body": "I come to you. I do the shopping, cooking, serving, washing up and tidying. You just look after your guests.",
         "details": [
           "From €50 per person",
           "2 to 8 guests (up to 10 by arrangement)",
-          "At least one week's notice",
-          "Lunigiana and surroundings",
-          "Menu built together"
+          "At least a week's notice, please",
+          "In and around Lunigiana",
+          "We plan the menu together"
         ],
-        "cta": "Tell me about your event"
+        "cta": "Tell me about the occasion"
       },
       {
-        "title": "Schisete · ready meals",
-        "body": "Ready-cooked dishes, fresh or frozen, to take home. We agree a budget and build the menu together.",
+        "title": "Schisete · meals to take home",
+        "body": "Home-cooked meals to take away, fresh or frozen. We agree on a budget and put the menu together.",
         "details": [
-          "Budget you choose",
+          "A budget you set",
           "Weekly or fortnightly",
           "Fresh or frozen",
-          "Personalised menu"
+          "A menu built around your tastes"
         ],
         "cta": "Tell me what you like"
       }
@@ -74,17 +74,17 @@
   },
   "garden": {
     "title": "The garden",
-    "p1": "The vegetable garden is right behind the house, and I tend it with my neighbours. From June and July onward, the first harvest goes straight onto the plates.",
-    "p2": "A garden teaches you things: patience, the unexpected, insects, wind, hard work. When a vegetable goes from seed to table, the circle closes. What I don't grow myself comes from small local producers: flour from the mill nearby, eggs from neighbours."
+    "p1": "The vegetable garden is right behind the house, and I tend it together with the neighbours. From June and July onwards, the first harvest goes straight onto the plate.",
+    "p2": "A garden teaches you things: patience, the unexpected, the insects, the wind, the work. When a vegetable goes from seed to plate, the circle closes. Anything I don't grow myself comes from small local producers: flour from the mill down the road, eggs from the neighbours."
   },
   "gallery": {
     "title": "A taste",
-    "subtitle": "A few dishes, a bit of garden, a few set tables."
+    "subtitle": "A handful of dishes, a glimpse of the garden, a few tables set and waiting."
   },
   "contact": {
     "title": "Get in touch",
-    "lead": "The fastest way to reach me is WhatsApp.",
-    "leadNote": "Messages only, no calls, please.",
+    "lead": "The quickest way to reach me is on WhatsApp.",
+    "leadNote": "Messages only, please. No phone calls.",
     "whatsappLabel": "+39 347 14 57 329",
     "emailIntro": "Email works just as well:"
   },
@@ -93,5 +93,5 @@
     "structureLink": "La Raminga guesthouse",
     "rights": "© 2026 La Raminga · Valentina Del Frate"
   },
-  "whatsappMessage": "Hi Valentina! I saw La Raminga's website and would like some information."
+  "whatsappMessage": "Hi Valentina! I saw La Raminga's website and I'd love to know more."
 }
