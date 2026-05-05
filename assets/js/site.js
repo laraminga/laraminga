@@ -133,6 +133,7 @@
         menu.classList.contains('hidden') ? 'false' : 'true'
       );
     });
+    
     menu.querySelectorAll('a').forEach((a) =>
       a.addEventListener('click', () => {
         menu.classList.add('hidden');
