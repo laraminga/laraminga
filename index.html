@@ -45,7 +45,7 @@
       },
     };
   </script>
-  <link rel="stylesheet" href="assets/css/site.css?v=9" />
+  <link rel="stylesheet" href="assets/css/site.css?v=14" />
 </head>
 
 <body class="font-serif text-ink bg-butter">
@@ -113,8 +113,8 @@
   <section class="relative min-h-[100svh] flex items-center overflow-hidden">
     <div class="absolute inset-0">
       <picture><source srcset="img/terrace-dining-table-mountain-view.webp" type="image/webp" /><img src="img/terrace-dining-table-mountain-view.jpeg" alt="" class="w-full h-full object-cover" loading="eager" decoding="async" fetchpriority="high" /></picture>
-      <div class="absolute inset-0 bg-ink/55"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-transparent to-ink/30"></div>
+      <div class="absolute inset-0 bg-ink/35"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-ink/65 via-transparent to-ink/15"></div>
     </div>
 
     <div class="relative max-w-3xl mx-auto w-full px-5 sm:px-7 py-32 md:py-40 text-cream text-center hero-text">
@@ -124,10 +124,10 @@
 
       <div class="mt-12 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
         <a href="#contact" data-whatsapp target="_blank" rel="noopener"
-          class="inline-flex items-center justify-center bg-brick hover:bg-terra text-white px-7 py-3.5 rounded-full font-medium transition shadow-lg"
+          class="inline-flex items-center justify-center bg-brick hover:bg-terra text-white px-7 py-3 rounded-full font-medium text-base md:text-lg transition"
           data-i18n="hero.cta"></a>
-        <a href="#cuisine"
-          class="inline-flex items-center justify-center bg-cream/10 hover:bg-cream/20 backdrop-blur text-cream border border-cream/40 px-7 py-3.5 rounded-full font-medium transition"
+        <a href="#about"
+          class="inline-flex items-center justify-center bg-cream/10 hover:bg-cream/20 backdrop-blur text-cream border border-cream/40 px-7 py-3 rounded-full font-medium text-base md:text-lg transition"
           data-i18n="hero.secondary"></a>
       </div>
     </div>
@@ -136,13 +136,13 @@
   <!-- ABOUT -->
   <section id="about" class="py-20 md:py-28 px-5 sm:px-7 bg-washSand">
     <div class="max-w-6xl mx-auto grid md:grid-cols-5 gap-10 md:gap-16 items-center">
-      <div class="md:col-span-3 order-2 md:order-1">
+      <div class="md:col-span-3">
         <h2 class="font-hand text-5xl md:text-6xl text-sandDeep leading-none" data-i18n="about.title"></h2>
         <p class="mt-6 text-lg leading-relaxed" data-i18n="about.p1"></p>
         <p class="mt-4 text-lg leading-relaxed" data-i18n="about.p2"></p>
         <p class="mt-4 text-lg leading-relaxed" data-i18n="about.p3"></p>
       </div>
-      <div class="md:col-span-2 order-1 md:order-2">
+      <div class="md:col-span-2">
         <div class="relative aspect-[3/4] overflow-hidden rounded-2xl bg-cream">
           <picture><source srcset="img/terrace-herb-garden-potted-plants.webp" type="image/webp" /><img src="img/terrace-herb-garden-potted-plants.jpeg" alt="" loading="lazy" decoding="async" class="w-full h-full object-cover" /></picture>
         </div>
@@ -153,12 +153,12 @@
   <!-- CUISINE -->
   <section id="cuisine" class="py-20 md:py-28 px-5 sm:px-7 bg-washHoney">
     <div class="max-w-6xl mx-auto grid md:grid-cols-5 gap-10 md:gap-16 items-center">
-      <div class="md:col-span-2 order-1">
+      <div class="md:col-span-2 order-2 md:order-1">
         <div class="relative aspect-[3/4] overflow-hidden rounded-2xl bg-butter">
           <picture><source srcset="img/tagliatelle-green-pesto-walnuts-parmesan.webp" type="image/webp" /><img src="img/tagliatelle-green-pesto-walnuts-parmesan.jpeg" alt="" loading="lazy" decoding="async" class="w-full h-full object-cover" /></picture>
         </div>
       </div>
-      <div class="md:col-span-3 order-2">
+      <div class="md:col-span-3 order-1 md:order-2">
         <h2 class="font-hand text-5xl md:text-6xl text-honeyDeep leading-none" data-i18n="cuisine.title"></h2>
         <p class="mt-5 text-lg leading-relaxed" data-i18n="cuisine.lead"></p>
         <p class="mt-4 text-lg leading-relaxed" data-i18n="cuisine.body1"></p>
@@ -171,12 +171,12 @@
   <!-- GARDEN -->
   <section id="garden" class="py-20 md:py-28 px-5 sm:px-7 bg-washSage">
     <div class="max-w-6xl mx-auto grid md:grid-cols-5 gap-10 md:gap-16 items-center">
-      <div class="md:col-span-3 order-2 md:order-1">
+      <div class="md:col-span-3">
         <h2 class="font-hand text-5xl md:text-6xl text-sageDeep leading-none" data-i18n="garden.title"></h2>
         <p class="mt-6 text-lg leading-relaxed" data-i18n="garden.p1"></p>
         <p class="mt-4 text-lg leading-relaxed" data-i18n="garden.p2"></p>
       </div>
-      <div class="md:col-span-2 order-1 md:order-2">
+      <div class="md:col-span-2">
         <div class="relative aspect-[3/4] overflow-hidden rounded-2xl bg-cream">
           <picture><source srcset="img/peas-climbing-beside-onion-bed.webp" type="image/webp" /><img src="img/peas-climbing-beside-onion-bed.jpeg" alt="" loading="lazy" decoding="async" class="w-full h-full object-cover" /></picture>
         </div>
@@ -269,6 +269,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/site.js?v=9"></script>
+  <script src="assets/js/site.js?v=14"></script>
 </body>
 </html>

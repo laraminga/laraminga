@@ -19,9 +19,13 @@ html { scroll-behavior: smooth; }
 body { -webkit-font-smoothing: antialiased; }
 section[id] { scroll-margin-top: 4.5rem; }
 
-/* hero text — subtle shadow so the cream pops against the photo */
+/* hero text — heavy three-stop shadow so the cream stays readable
+   over the photo with only a light overlay */
 .hero-text {
-  text-shadow: 0 2px 24px rgba(0,0,0,.55), 0 1px 3px rgba(0,0,0,.5);
+  text-shadow:
+    0 1px 3px  rgba(0, 0, 0, .95),
+    0 3px 18px rgba(0, 0, 0, .85),
+    0 6px 38px rgba(0, 0, 0, .7);
 }
 
 /* service-card bullets: dot + hanging indent so wrapped lines align */
