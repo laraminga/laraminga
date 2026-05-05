@@ -1,0 +1,97 @@
+{
+  "meta": {
+    "title": "La Raminga · Valentina's home cooking",
+    "description": "Home restaurant, private chef and ready meals in Lunigiana, Italy. Seasonal, handmade dishes from the garden."
+  },
+  "nav": {
+    "about": "About",
+    "cuisine": "The food",
+    "services": "What I cook",
+    "garden": "The garden",
+    "gallery": "Gallery",
+    "contact": "Get in touch"
+  },
+  "hero": {
+    "kicker": "home restaurant in Lunigiana, Italy",
+    "title": "la raminga",
+    "subtitle": "Seasonal, handmade cooking, told around the table with you. Pasta rolled by hand, vegetables from the garden behind the house, Italian flavours meeting scents picked up while travelling. A few seats, time for a chat. More an experience than a dinner.",
+    "cta": "Get in touch",
+    "secondary": "Discover the food"
+  },
+  "about": {
+    "title": "Hi, I'm Valentina",
+    "p1": "I grew up in Bergamo, traveled a lot, and now live in Lunigiana. I've worked for years as a cook and in many other jobs, but cooking is the thing that's always with me, whether I'm happy, sad, in a tent over a fire, or on holiday.",
+    "p2": "La Raminga is how I open my home to people who want to eat well and stop for a chat. No restaurant, no big numbers, just careful dishes, a few seats, and time at the table.",
+    "p3": "I'm vegetarian, but I cook meat and fish too: at my table you'll find everything."
+  },
+  "cuisine": {
+    "title": "How I cook",
+    "lead": "Tasty, colourful, handmade. Seasonal and local whenever I can.",
+    "body1": "Everything is by hand: fresh pasta, ravioli, gnocchi, focaccia, crackers, baked desserts and crêpes. Vegetables lead the menu: wild herbs and the garden behind the house decide what goes on the table that week, alongside whatever idea I'm playing with.",
+    "body2": "I love mixing the Italian dishes I grew up with (parmigiana, pasta alla Norma, lemon risotto) with more Asian flavours: ginger, soy, grains, legumes. Once in a while I invent a themed evening: spicy dinner, vegetarian burger night, big shared plates with focaccia and fried polenta to mop up the sauce.",
+    "body3": "Vegan menus aren't a problem, gluten-free we can work out together, and I handle intolerances easily. For serious allergies though, I can't promise an allergen-free kitchen, so let me know in advance."
+  },
+  "services": {
+    "title": "What I cook",
+    "subtitle": "Three ways to share a table.",
+    "items": [
+      {
+        "title": "Home restaurant",
+        "body": "Come for dinner. Indoor dining room when it's cold, terrace with mountain view when the sun is out. Up to eight guests.",
+        "details": [
+          "Friday and Saturday, around 8 pm",
+          "Weekly four-course menu",
+          "Half a litre of wine, water, coffee, amaro included",
+          "Pets welcome (let me know in advance)",
+          "€30–40 per person"
+        ],
+        "cta": "Reserve a seat"
+      },
+      {
+        "title": "Private chef",
+        "body": "I come to you. I shop, cook, serve, wash up and tidy. You only think about your guests.",
+        "details": [
+          "From €50 per person",
+          "2 to 8 guests (up to 10 by arrangement)",
+          "At least one week's notice",
+          "Lunigiana and surroundings",
+          "Menu built together"
+        ],
+        "cta": "Tell me about your event"
+      },
+      {
+        "title": "Schisete · ready meals",
+        "body": "Ready-cooked dishes, fresh or frozen, to take home. We agree a budget and build the menu together.",
+        "details": [
+          "Budget you choose",
+          "Weekly or fortnightly",
+          "Fresh or frozen",
+          "Personalised menu"
+        ],
+        "cta": "Tell me what you like"
+      }
+    ]
+  },
+  "garden": {
+    "title": "The garden",
+    "p1": "The vegetable garden is right behind the house, and I tend it with my neighbours. From June and July onward, the first harvest goes straight onto the plates.",
+    "p2": "A garden teaches you things: patience, the unexpected, insects, wind, hard work. When a vegetable goes from seed to table, the circle closes. What I don't grow myself comes from small local producers: flour from the mill nearby, eggs from neighbours."
+  },
+  "gallery": {
+    "title": "A taste",
+    "subtitle": "A few dishes, a bit of garden, a few set tables."
+  },
+  "contact": {
+    "title": "Get in touch",
+    "lead": "The fastest way to reach me is WhatsApp.",
+    "leadNote": "Messages only, no calls, please.",
+    "whatsappLabel": "+39 347 14 57 329",
+    "emailIntro": "Email works just as well:"
+  },
+  "footer": {
+    "tagline": "Seasonal, handmade cooking · Lunigiana, Italy",
+    "structureLink": "La Raminga guesthouse",
+    "rights": "© 2026 La Raminga · Valentina Del Frate"
+  },
+  "whatsappMessage": "Hi Valentina! I saw La Raminga's website and would like some information."
+}

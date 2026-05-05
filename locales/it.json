@@ -1,0 +1,97 @@
+{
+  "meta": {
+    "title": "La Raminga · la cucina di Valentina",
+    "description": "Home restaurant, chef a domicilio e pranzi pronti in Lunigiana. Cucina di stagione, fatta a mano, con verdure dell'orto."
+  },
+  "nav": {
+    "about": "Chi sono",
+    "cuisine": "La cucina",
+    "services": "I servizi",
+    "garden": "L'orto",
+    "gallery": "Galleria",
+    "contact": "Scrivimi"
+  },
+  "hero": {
+    "kicker": "home restaurant in Lunigiana",
+    "title": "la raminga",
+    "subtitle": "Cucina di stagione, fatta a mano, raccontata insieme a te a tavola. Pasta tirata al mattarello, verdure dell'orto dietro casa, sapori italiani che si mescolano a profumi raccolti nei viaggi. Pochi posti, tempo per chiacchierare. Un'esperienza, più che una cena.",
+    "cta": "Scrivimi",
+    "secondary": "Scopri la cucina"
+  },
+  "about": {
+    "title": "Ciao, sono Valentina",
+    "p1": "Vengo da Bergamo, ho viaggiato tanto e ora vivo in Lunigiana. Ho lavorato anni come cuoca e in molti altri mestieri, ma cucinare è quello che mi accompagna sempre, quando sono felice, triste, in tenda sul fuoco o in vacanza.",
+    "p2": "La Raminga è il mio modo di aprire casa a chi ha voglia di mangiare bene e di fermarsi a chiacchierare. Niente ristorante, niente grandi numeri: solo piatti curati, pochi posti e tempo a tavola.",
+    "p3": "Sono vegetariana, ma cucino anche carne e pesce: a tavola con me trovi tutto."
+  },
+  "cuisine": {
+    "title": "La mia cucina",
+    "lead": "Gustosa, colorata, fatta a mano. Stagionale e a chilometro zero quando posso.",
+    "body1": "Tutto a mano: pasta fresca, ravioli, gnocchi, focacce, cracker, dolci da forno e crêpe. Le verdure hanno il ruolo principale: sono le erbe spontanee e l'orto dietro casa a decidere il menù della settimana, insieme alle idee del momento.",
+    "body2": "Mi piace mescolare i piatti italiani che amo (parmigiana, pasta alla Norma, risotto al limone) con sapori più asiatici: zenzero, soia, cereali, legumi. Ogni tanto invento una serata a tema: cena tutta piccante, hamburger vegetariana, cucceria con focaccia e polenta fritta da scarpetta.",
+    "body3": "Per i menù vegani vado tranquilla, per il senza glutine ne parliamo, e gestisco intolleranze. Per le allergie serie però non posso garantire una cucina priva di allergeni, meglio dirmelo prima."
+  },
+  "services": {
+    "title": "I servizi",
+    "subtitle": "Tre modi per stare a tavola insieme.",
+    "items": [
+      {
+        "title": "Home restaurant",
+        "body": "Vieni a cena da me. Sala interna quando fa freddo, terrazza con vista quando c'è il sole. Massimo otto persone.",
+        "details": [
+          "Venerdì e sabato, intorno alle 20",
+          "Menù settimanale di quattro portate",
+          "Mezzo litro di vino, acqua, caffè, amaro inclusi",
+          "Animali ammessi (avvisami prima)",
+          "30–40 € a persona"
+        ],
+        "cta": "Prenota un posto"
+      },
+      {
+        "title": "Chef a domicilio",
+        "body": "Vengo io a casa tua. Faccio la spesa, cucino, servo, lavo e rimetto a posto. Tu pensi solo agli ospiti.",
+        "details": [
+          "Da 50 € a persona",
+          "Da 2 a 8 persone (10 da concordare)",
+          "Almeno una settimana di anticipo",
+          "Lunigiana e dintorni",
+          "Menù costruito insieme"
+        ],
+        "cta": "Raccontami l'occasione"
+      },
+      {
+        "title": "Le schisete",
+        "body": "I miei pranzi pronti, freschi o congelati, da portare a casa. Si stabilisce un budget e creiamo i menù insieme.",
+        "details": [
+          "Budget concordato",
+          "Settimanali o ogni due settimane",
+          "Freschi o congelati",
+          "Menù personalizzati"
+        ],
+        "cta": "Scrivimi i tuoi gusti"
+      }
+    ]
+  },
+  "garden": {
+    "title": "L'orto",
+    "p1": "L'orto è dietro casa, lo curo insieme ai vicini. Da giugno e luglio i primi raccolti finiscono direttamente nei piatti.",
+    "p2": "Dall'orto si imparano cose: la pazienza, gli imprevisti, gli insetti, il vento, la fatica. Quando una verdura passa dal seme al tavolo, il cerchio si chiude. Quello che non viene da qui arriva da piccoli produttori della zona: farine dal mulino vicino, uova dai contadini intorno."
+  },
+  "gallery": {
+    "title": "Un assaggio",
+    "subtitle": "Qualche piatto, un po' di orto, qualche tavola apparecchiata."
+  },
+  "contact": {
+    "title": "Scrivimi",
+    "lead": "Il modo più veloce per contattarmi è WhatsApp.",
+    "leadNote": "Solo messaggi, niente chiamate, grazie.",
+    "whatsappLabel": "+39 347 14 57 329",
+    "emailIntro": "Un'email va benissimo lo stesso:"
+  },
+  "footer": {
+    "tagline": "Cucina di stagione, fatta a mano · Lunigiana",
+    "structureLink": "La struttura La Raminga",
+    "rights": "© 2026 La Raminga · Valentina Del Frate"
+  },
+  "whatsappMessage": "Ciao Valentina! Ho visto il sito di La Raminga e vorrei avere informazioni."
+}

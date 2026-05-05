@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title data-i18n="meta.title">La Raminga</title>
+  <meta name="description" content="" data-i18n="meta.description" data-i18n-attr="content" />
+  <meta name="theme-color" content="#fbf5e7" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8D%85%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: '#fbf5e7',
+            butter: '#fdf8f0',
+            brick: '#c25539',
+            terra: '#a23f24',
+            sage: '#7a8d5a',
+            sageDark: '#566840',
+            ochre: '#d4a149',
+            ink: '#2a1f17',
+            washSand: '#faf3e0',
+            washHoney: '#f5e9c6',
+            washSage: '#e6ecd6',
+            washRose: '#f3dcce',
+            washBeige: '#ece1c4',
+            sandDeep: '#715c1a',
+            honeyDeep: '#6b591e',
+            sageDeep: '#4f5a2a',
+            roseDeep: '#74391f',
+            beigeDeep: '#5d4a1c',
+          },
+          fontFamily: {
+            hand: ['Caveat', 'cursive'],
+            serif: ['Lora', 'Georgia', 'serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <link rel="stylesheet" href="assets/css/site.css?v=8" />
+</head>
+
+<body class="font-serif text-ink bg-butter">
+
+  <!-- HEADER -->
+  <header id="header" class="relative md:fixed md:top-0 md:inset-x-0 z-50">
+    <div class="max-w-6xl mx-auto px-5 sm:px-7 py-4 flex items-center justify-between gap-4">
+      <a href="#top" class="logo font-hand text-3xl md:text-4xl leading-none whitespace-nowrap">la raminga</a>
+
+      <nav class="hidden md:flex items-center gap-7 text-sm">
+        <a href="#about" class="hover:text-brick transition" data-i18n="nav.about"></a>
+        <a href="#cuisine" class="hover:text-brick transition" data-i18n="nav.cuisine"></a>
+        <a href="#garden" class="hover:text-brick transition" data-i18n="nav.garden"></a>
+        <a href="#services" class="hover:text-brick transition" data-i18n="nav.services"></a>
+        <a href="#gallery" class="hover:text-brick transition" data-i18n="nav.gallery"></a>
+        <a href="#contact" class="hover:text-brick transition" data-i18n="nav.contact"></a>
+      </nav>
+
+      <div class="flex items-center gap-2">
+        <button data-locale-btn="it" class="locale-btn" aria-label="Italiano" aria-pressed="true">
+          <svg width="24" height="16" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+            <rect width="20" height="40" fill="#7a8d5a"/>
+            <rect x="20" width="20" height="40" fill="#fbf5e7"/>
+            <rect x="40" width="20" height="40" fill="#c25539"/>
+          </svg>
+        </button>
+        <button data-locale-btn="en" class="locale-btn" aria-label="English" aria-pressed="false">
+          <svg width="24" height="16" viewBox="0 0 60 40" xmlns="http://www.w3.org/2000/svg">
+            <clipPath id="flag-uk-clip"><rect width="60" height="40"/></clipPath>
+            <g clip-path="url(#flag-uk-clip)">
+              <rect width="60" height="40" fill="#2a1f17"/>
+              <path d="M0,0 L60,40 M60,0 L0,40" stroke="#fbf5e7" stroke-width="8"/>
+              <path d="M0,0 L60,40" stroke="#c25539" stroke-width="3"/>
+              <path d="M60,0 L0,40" stroke="#c25539" stroke-width="3"/>
+              <path d="M30,0 V40 M0,20 H60" stroke="#fbf5e7" stroke-width="12"/>
+              <path d="M30,0 V40 M0,20 H60" stroke="#c25539" stroke-width="6"/>
+            </g>
+          </svg>
+        </button>
+        <button id="nav-toggle" class="md:hidden ml-1 p-2 -mr-2" aria-label="Menu" aria-controls="nav-menu" aria-expanded="false">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <line x1="4" y1="7" x2="20" y2="7"/>
+            <line x1="4" y1="12" x2="20" y2="12"/>
+            <line x1="4" y1="17" x2="20" y2="17"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <nav id="nav-menu" class="hidden md:hidden text-ink">
+      <div class="px-6 py-5 flex flex-col gap-4 text-base">
+        <a href="#about" data-i18n="nav.about"></a>
+        <a href="#cuisine" data-i18n="nav.cuisine"></a>
+        <a href="#garden" data-i18n="nav.garden"></a>
+        <a href="#services" data-i18n="nav.services"></a>
+        <a href="#gallery" data-i18n="nav.gallery"></a>
+        <a href="#contact" data-i18n="nav.contact"></a>
+      </div>
+    </nav>
+  </header>
+
+  <span id="top"></span>
+
+  <!-- HERO -->
+  <section class="relative min-h-[100svh] flex items-center overflow-hidden">
+    <div class="absolute inset-0">
+      <picture><source srcset="img/terrace-dining-table-mountain-view.webp" type="image/webp" /><img src="img/terrace-dining-table-mountain-view.jpeg" alt="" class="w-full h-full object-cover" loading="eager" decoding="async" fetchpriority="high" /></picture>
+      <div class="absolute inset-0 bg-ink/55"></div>
+      <div class="absolute inset-0 bg-gradient-to-t from-ink/85 via-transparent to-ink/30"></div>
+    </div>
+
+    <div class="relative max-w-3xl mx-auto w-full px-5 sm:px-7 py-32 md:py-40 text-cream text-center hero-text">
+      <h1 class="font-hand leading-[0.85] text-cream text-7xl sm:text-8xl md:text-[10rem]" data-i18n="hero.title"></h1>
+      <p class="mt-6 text-base sm:text-lg md:text-xl uppercase tracking-[0.18em] text-cream font-medium" data-i18n="hero.kicker"></p>
+      <p class="mt-6 mx-auto max-w-2xl text-lg md:text-xl text-cream leading-relaxed" data-i18n="hero.subtitle"></p>
+
+      <div class="mt-12 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+        <a href="#contact" data-whatsapp target="_blank" rel="noopener"
+          class="inline-flex items-center justify-center bg-brick hover:bg-terra text-white px-7 py-3.5 rounded-full font-medium transition shadow-lg"
+          data-i18n="hero.cta"></a>
+        <a href="#cuisine"
+          class="inline-flex items-center justify-center bg-cream/10 hover:bg-cream/20 backdrop-blur text-cream border border-cream/40 px-7 py-3.5 rounded-full font-medium transition"
+          data-i18n="hero.secondary"></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="py-20 md:py-28 px-5 sm:px-7 bg-washSand">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-5 gap-10 md:gap-16 items-center">
+      <div class="md:col-span-3 order-2 md:order-1">
+        <h2 class="font-hand text-5xl md:text-6xl text-sandDeep leading-none" data-i18n="about.title"></h2>
+        <p class="mt-6 text-lg leading-relaxed" data-i18n="about.p1"></p>
+        <p class="mt-4 text-lg leading-relaxed" data-i18n="about.p2"></p>
+        <p class="mt-4 text-lg leading-relaxed" data-i18n="about.p3"></p>
+      </div>
+      <div class="md:col-span-2 order-1 md:order-2">
+        <div class="relative aspect-[3/4] overflow-hidden rounded-2xl bg-cream">
+          <picture><source srcset="img/terrace-herb-garden-potted-plants.webp" type="image/webp" /><img src="img/terrace-herb-garden-potted-plants.jpeg" alt="" loading="lazy" decoding="async" class="w-full h-full object-cover" /></picture>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUISINE -->
+  <section id="cuisine" class="py-20 md:py-28 px-5 sm:px-7 bg-washHoney">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-5 gap-10 md:gap-16 items-center">
+      <div class="md:col-span-2 order-1">
+        <div class="relative aspect-[3/4] overflow-hidden rounded-2xl bg-butter">
+          <picture><source srcset="img/tagliatelle-green-pesto-walnuts-parmesan.webp" type="image/webp" /><img src="img/tagliatelle-green-pesto-walnuts-parmesan.jpeg" alt="" loading="lazy" decoding="async" class="w-full h-full object-cover" /></picture>
+        </div>
+      </div>
+      <div class="md:col-span-3 order-2">
+        <h2 class="font-hand text-5xl md:text-6xl text-honeyDeep leading-none" data-i18n="cuisine.title"></h2>
+        <p class="mt-5 text-lg leading-relaxed" data-i18n="cuisine.lead"></p>
+        <p class="mt-4 text-lg leading-relaxed" data-i18n="cuisine.body1"></p>
+        <p class="mt-4 text-lg leading-relaxed" data-i18n="cuisine.body2"></p>
+        <p class="mt-4 text-lg leading-relaxed" data-i18n="cuisine.body3"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- GARDEN -->
+  <section id="garden" class="py-20 md:py-28 px-5 sm:px-7 bg-washSage">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-5 gap-10 md:gap-16 items-center">
+      <div class="md:col-span-3 order-2 md:order-1">
+        <h2 class="font-hand text-5xl md:text-6xl text-sageDeep leading-none" data-i18n="garden.title"></h2>
+        <p class="mt-6 text-lg leading-relaxed" data-i18n="garden.p1"></p>
+        <p class="mt-4 text-lg leading-relaxed" data-i18n="garden.p2"></p>
+      </div>
+      <div class="md:col-span-2 order-1 md:order-2">
+        <div class="relative aspect-[3/4] overflow-hidden rounded-2xl bg-cream">
+          <picture><source srcset="img/peas-climbing-beside-onion-bed.webp" type="image/webp" /><img src="img/peas-climbing-beside-onion-bed.jpeg" alt="" loading="lazy" decoding="async" class="w-full h-full object-cover" /></picture>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="py-20 md:py-28 px-5 sm:px-7 bg-washRose">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center">
+        <h2 class="font-hand text-5xl md:text-6xl text-roseDeep leading-none" data-i18n="services.title"></h2>
+        <p class="mt-4 text-lg leading-relaxed" data-i18n="services.subtitle"></p>
+      </div>
+      <div id="services-list" class="mt-12 grid md:grid-cols-3 gap-6 md:gap-7"></div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="py-20 md:py-28 px-5 sm:px-7 bg-washBeige">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center">
+        <h2 class="font-hand text-5xl md:text-6xl text-beigeDeep leading-none" data-i18n="gallery.title"></h2>
+        <p class="mt-3 text-lg leading-relaxed" data-i18n="gallery.subtitle"></p>
+      </div>
+
+      <div class="gallery mt-10">
+        <figure><picture><source srcset="img/eggplant-parmigiana-white-marble-plate.webp" type="image/webp" /><img src="img/eggplant-parmigiana-white-marble-plate.jpeg" alt="" loading="lazy" decoding="async" /></picture></figure>
+        <figure><picture><source srcset="img/pea-vines-flowering-green-tendrils.webp" type="image/webp" /><img src="img/pea-vines-flowering-green-tendrils.jpeg" alt="" loading="lazy" decoding="async" /></picture></figure>
+        <figure><picture><source srcset="img/peas-climbing-beside-onion-bed.webp" type="image/webp" /><img src="img/peas-climbing-beside-onion-bed.jpeg" alt="" loading="lazy" decoding="async" /></picture></figure>
+        <figure><picture><source srcset="img/golden-focaccia-bread-crusty-dimples.webp" type="image/webp" /><img src="img/golden-focaccia-bread-crusty-dimples.jpeg" alt="" loading="lazy" decoding="async" /></picture></figure>
+        <figure><picture><source srcset="img/beets-onions-sprouting-garden-row.webp" type="image/webp" /><img src="img/beets-onions-sprouting-garden-row.jpeg" alt="" loading="lazy" decoding="async" /></picture></figure>
+        <figure><picture><source srcset="img/radicchio-halves-cutting-board-purple.webp" type="image/webp" /><img src="img/radicchio-halves-cutting-board-purple.jpeg" alt="" loading="lazy" decoding="async" /></picture></figure>
+        <figure><picture><source srcset="img/three-dumplings-wooden-cutting-board.webp" type="image/webp" /><img src="img/three-dumplings-wooden-cutting-board.jpeg" alt="" loading="lazy" decoding="async" /></picture></figure>
+        <figure><picture><source srcset="img/fresh-pasta-sheets-dusted-flour.webp" type="image/webp" /><img src="img/fresh-pasta-sheets-dusted-flour.jpeg" alt="" loading="lazy" decoding="async" /></picture></figure>
+        <figure><picture><source srcset="img/handmade-casoncelli-dumplings-flour-tray.webp" type="image/webp" /><img src="img/handmade-casoncelli-dumplings-flour-tray.jpeg" alt="" loading="lazy" decoding="async" /></picture></figure>
+        <figure><picture><source srcset="img/terrace-herb-garden-potted-plants.webp" type="image/webp" /><img src="img/terrace-herb-garden-potted-plants.jpeg" alt="" loading="lazy" decoding="async" /></picture></figure>
+        <figure><picture><source srcset="img/savory-cheesecake-vegetable-ribbons-sauce.webp" type="image/webp" /><img src="img/savory-cheesecake-vegetable-ribbons-sauce.jpeg" alt="" loading="lazy" decoding="async" /></picture></figure>
+        <figure><picture><source srcset="img/tiny-clover-sprouts-purple-green.webp" type="image/webp" /><img src="img/tiny-clover-sprouts-purple-green.jpeg" alt="" loading="lazy" decoding="async" /></picture></figure>
+        <figure><picture><source srcset="img/poached-egg-green-chard-sauce.webp" type="image/webp" /><img src="img/poached-egg-green-chard-sauce.jpeg" alt="" loading="lazy" decoding="async" /></picture></figure>
+        <figure><picture><source srcset="img/seed-crackers-wooden-bowl-chunks.webp" type="image/webp" /><img src="img/seed-crackers-wooden-bowl-chunks.jpeg" alt="" loading="lazy" decoding="async" /></picture></figure>
+        <figure><picture><source srcset="img/roasted-tomatoes-herbs-olive-oil.webp" type="image/webp" /><img src="img/roasted-tomatoes-herbs-olive-oil.jpeg" alt="" loading="lazy" decoding="async" /></picture></figure>
+        <figure><picture><source srcset="img/cold-frame-growing-young-leeks.webp" type="image/webp" /><img src="img/cold-frame-growing-young-leeks.jpeg" alt="" loading="lazy" decoding="async" /></picture></figure>
+        <figure><picture><source srcset="img/spinach-seedlings-rooted-dry-ground.webp" type="image/webp" /><img src="img/spinach-seedlings-rooted-dry-ground.jpeg" alt="" loading="lazy" decoding="async" /></picture></figure>
+        <figure><picture><source srcset="img/grilled-eggplant-slices-basil-leaves.webp" type="image/webp" /><img src="img/grilled-eggplant-slices-basil-leaves.jpeg" alt="" loading="lazy" decoding="async" /></picture></figure>
+        <figure><picture><source srcset="img/tagliatelle-green-pesto-walnuts-parmesan.webp" type="image/webp" /><img src="img/tagliatelle-green-pesto-walnuts-parmesan.jpeg" alt="" loading="lazy" decoding="async" /></picture></figure>
+        <figure><picture><source srcset="img/tomato-plant-blooming-yellow-flowers.webp" type="image/webp" /><img src="img/tomato-plant-blooming-yellow-flowers.jpeg" alt="" loading="lazy" decoding="async" /></picture></figure>
+        <figure><picture><source srcset="img/freshly-harvested-green-olives-crate.webp" type="image/webp" /><img src="img/freshly-harvested-green-olives-crate.jpeg" alt="" loading="lazy" decoding="async" /></picture></figure>
+        <figure><picture><source srcset="img/roasted-sweet-potato-garlic-cloves.webp" type="image/webp" /><img src="img/roasted-sweet-potato-garlic-cloves.jpeg" alt="" loading="lazy" decoding="async" /></picture></figure>
+        <figure><picture><source srcset="img/parmigiana-basil-leaves-outdoor-table.webp" type="image/webp" /><img src="img/parmigiana-basil-leaves-outdoor-table.jpeg" alt="" loading="lazy" decoding="async" /></picture></figure>
+        <figure><picture><source srcset="img/cold-frame-garlic-shoots-glass.webp" type="image/webp" /><img src="img/cold-frame-garlic-shoots-glass.jpeg" alt="" loading="lazy" decoding="async" /></picture></figure>
+        <figure><picture><source srcset="img/folded-crepe-topped-chestnut-preserve.webp" type="image/webp" /><img src="img/folded-crepe-topped-chestnut-preserve.jpeg" alt="" loading="lazy" decoding="async" /></picture></figure>
+        <figure><picture><source srcset="img/spicy-seed-crackers-close-up.webp" type="image/webp" /><img src="img/spicy-seed-crackers-close-up.jpeg" alt="" loading="lazy" decoding="async" /></picture></figure>
+        <figure><picture><source srcset="img/savoy-cabbage-rolls-stuffed-packed.webp" type="image/webp" /><img src="img/savoy-cabbage-rolls-stuffed-packed.jpeg" alt="" loading="lazy" decoding="async" /></picture></figure>
+        <figure><picture><source srcset="img/bowls-pesto-purple-cream-condiments.webp" type="image/webp" /><img src="img/bowls-pesto-purple-cream-condiments.jpeg" alt="" loading="lazy" decoding="async" /></picture></figure>
+        <figure><picture><source srcset="img/savory-cheesecake-plated-above-sauce.webp" type="image/webp" /><img src="img/savory-cheesecake-plated-above-sauce.jpeg" alt="" loading="lazy" decoding="async" /></picture></figure>
+        <figure><picture><source srcset="img/terrace-table-blue-plates-mountains.webp" type="image/webp" /><img src="img/terrace-table-blue-plates-mountains.jpeg" alt="" loading="lazy" decoding="async" /></picture></figure>
+        <figure><picture><source srcset="img/terrace-dining-table-mountain-view.webp" type="image/webp" /><img src="img/terrace-dining-table-mountain-view.jpeg" alt="" loading="lazy" decoding="async" /></picture></figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="py-20 md:py-28 px-5 sm:px-7 bg-ink text-cream">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="font-hand text-6xl md:text-7xl leading-none" data-i18n="contact.title"></h2>
+      <p class="mt-6 text-lg leading-relaxed" data-i18n="contact.lead"></p>
+
+      <a href="#" data-whatsapp target="_blank" rel="noopener"
+        class="mt-8 inline-flex items-center justify-center gap-3 bg-brick hover:bg-terra px-8 py-4 rounded-full text-lg font-medium transition shadow-xl">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.768.967-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.108.547 4.087 1.504 5.81L0 24l6.335-1.652A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+        <span data-i18n="contact.whatsappLabel"></span>
+      </a>
+
+      <p class="mt-3 text-sm text-cream/70" data-i18n="contact.leadNote"></p>
+
+      <p class="mt-8 text-lg">
+        <span data-i18n="contact.emailIntro"></span>
+        <a id="email-link" href="mailto:vale.sfra@hotmail.it" class="underline underline-offset-4 hover:opacity-80">vale.sfra@hotmail.it</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-8 px-5 sm:px-7 bg-ink text-cream/70 border-t border-cream/10">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-3 md:gap-6 items-center justify-between text-sm text-center md:text-left">
+      <span data-i18n="footer.tagline"></span>
+      <a href="https://laraminga-struttura.it" target="_blank" rel="noopener" class="hover:text-cream underline underline-offset-4 decoration-cream/20" data-i18n="footer.structureLink"></a>
+      <span data-i18n="footer.rights"></span>
+    </div>
+  </footer>
+
+  <script src="assets/js/site.js?v=8"></script>
+</body>
+</html>
