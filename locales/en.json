@@ -60,7 +60,7 @@
         "cta": "Tell me about the occasion"
       },
       {
-        "title": "Schisete · meals to take home",
+        "title": "Schisete · ready meals",
         "body": "Home-cooked meals to take away, fresh or frozen. We agree on a budget and put the menu together.",
         "details": [
           "A budget you set",
@@ -83,7 +83,7 @@
   },
   "contact": {
     "title": "Get in touch",
-    "lead": "The quickest way to reach me is on WhatsApp.",
+    "lead": "The quickest way to reach me is on WhatsApp:",
     "leadNote": "Messages only, please. No phone calls.",
     "whatsappLabel": "+39 347 14 57 329",
     "emailIntro": "Email works just as well:"
