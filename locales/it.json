@@ -14,7 +14,7 @@
   "hero": {
     "kicker": "home restaurant in Lunigiana",
     "title": "la raminga",
-    "subtitle": "Cucina di stagione, fatta a mano, raccontata insieme a te a tavola. Pasta tirata al mattarello, verdure dell'orto dietro casa, sapori italiani che si mescolano a profumi raccolti nei viaggi. Pochi posti, tempo per chiacchierare. Un'esperienza, più che una cena.",
+    "subtitle": "Cucina di stagione, fatta a mano. Pasta tirata al mattarello, verdure dell'orto, sapori italiani che incontrano profumi raccolti nei viaggi. Un'esperienza più che una cena.",
     "cta": "Scrivimi",
     "secondary": "Conoscimi"
   },
@@ -79,17 +79,17 @@
   },
   "gallery": {
     "title": "Un assaggio",
-    "subtitle": "Qualche piatto, un po' di orto, qualche tavola apparecchiata."
+    "subtitle": "Tra piatti, orto e tavole apparecchiate."
   },
   "contact": {
     "title": "Scrivimi",
-    "lead": "Il modo più veloce per contattarmi è WhatsApp:",
+    "lead": "Sentiamoci su WhatsApp:",
     "leadNote": "Solo messaggi, niente chiamate, grazie.",
     "whatsappLabel": "+39 347 14 57 329",
-    "emailIntro": "Un'email va benissimo lo stesso:"
+    "emailIntro": "Anche un'email va benissimo:"
   },
   "footer": {
-    "tagline": "Cucina di stagione, fatta a mano · Lunigiana",
+    "tagline": "Cucina di stagione, fatta a mano, in Lunigiana.",
     "structureLink": "La struttura La Raminga",
     "rights": "© 2026 La Raminga · Valentina Del Frate"
   },

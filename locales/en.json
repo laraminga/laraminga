@@ -14,7 +14,7 @@
   "hero": {
     "kicker": "home restaurant in Lunigiana, Italy",
     "title": "la raminga",
-    "subtitle": "Seasonal, handmade cooking, shared around the table. Hand-rolled pasta, vegetables straight from the garden out back, Italian flavours mingling with scents I've picked up travelling. A few seats, plenty of time to talk. More of an experience than a dinner.",
+    "subtitle": "Seasonal, handmade cooking. Hand-rolled pasta, vegetables from the garden, Italian flavours mingling with scents I've picked up travelling. More an experience than a dinner.",
     "cta": "Get in touch",
     "secondary": "Get to know me"
   },
@@ -83,13 +83,13 @@
   },
   "contact": {
     "title": "Get in touch",
-    "lead": "The quickest way to reach me is on WhatsApp:",
+    "lead": "Let's chat on WhatsApp:",
     "leadNote": "Messages only, please. No phone calls.",
     "whatsappLabel": "+39 347 14 57 329",
-    "emailIntro": "Email works just as well:"
+    "emailIntro": "An email also works:"
   },
   "footer": {
-    "tagline": "Seasonal, handmade cooking · Lunigiana, Italy",
+    "tagline": "Seasonal, handmade cooking, in Lunigiana, Italy.",
     "structureLink": "La Raminga guesthouse",
     "rights": "© 2026 La Raminga · Valentina Del Frate"
   },

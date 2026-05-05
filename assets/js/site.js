@@ -67,7 +67,7 @@
                 <ul class="bullet-list mt-5 space-y-1.5 list-none">${detailsHtml}</ul>
                 <div class="mt-auto pt-5">
                   <a href="${waLink(msg)}" target="_blank" rel="noopener"
-                    class="inline-flex items-center justify-center bg-sage hover:bg-sageDark text-white px-5 py-3 rounded-full font-medium transition">
+                    class="inline-flex items-center justify-center bg-brick hover:bg-terra text-white px-5 py-3 rounded-full font-medium transition">
                     ${escapeHtml(s?.cta)}
                   </a>
                 </div>
@@ -126,19 +126,28 @@
     const toggle = document.getElementById('nav-toggle');
     const menu = document.getElementById('nav-menu');
     if (!toggle || !menu) return;
-    toggle.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
-      toggle.setAttribute(
-        'aria-expanded',
-        menu.classList.contains('hidden') ? 'false' : 'true'
-      );
-    });
-    
+
+    const isOpen = () => !menu.classList.contains('hidden');
+    const close = () => {
+      menu.classList.add('hidden');
+      toggle.setAttribute('aria-expanded', 'false');
+    };
+    const open = () => {
+      menu.classList.remove('hidden');
+      toggle.setAttribute('aria-expanded', 'true');
+    };
+
+    toggle.addEventListener('click', () => (isOpen() ? close() : open()));
+
     menu.querySelectorAll('a').forEach((a) =>
-      a.addEventListener('click', () => {
-        menu.classList.add('hidden');
-        toggle.setAttribute('aria-expanded', 'false');
-      })
+      a.addEventListener('click', close)
+    );
+
+    // close the menu as soon as the user starts scrolling
+    window.addEventListener(
+      'scroll',
+      () => { if (isOpen()) close(); },
+      { passive: true }
     );
   }
 

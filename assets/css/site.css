@@ -8,6 +8,7 @@
   --sage-dark: #566840;
   --ochre: #d4a149;
   --ink: #2a1f17;
+  --rose-deep: #74391f;
 
   /* bullet sizing — keeps hanging indent in sync with marker */
   --bullet-size: 6px;
@@ -62,7 +63,7 @@ section[id] { scroll-margin-top: 4.5rem; }
   width: var(--bullet-size);
   height: var(--bullet-size);
   border-radius: 50%;
-  background: var(--sage);
+  background: var(--brick);
   vertical-align: 0.18em;
   margin-right: var(--bullet-gap);
 }
@@ -113,6 +114,11 @@ picture > source { display: none; }
   border-bottom-left-radius: 1.25rem;
   border-bottom-right-radius: 1.25rem;
 }
+
+/* burger / close icon swap based on aria-expanded */
+#nav-toggle .icon-close { display: none; }
+#nav-toggle[aria-expanded="true"] .icon-burger { display: none; }
+#nav-toggle[aria-expanded="true"] .icon-close { display: block; }
 
 /* === locale flag toggle === */
 .locale-btn {
