@@ -148,10 +148,77 @@
     });
   }
 
+  /* === decorative herb / fruit / flower doodles ============================
+     Scatters a few Lucide-icon SVGs (defined in <defs> at the top of <body>)
+     at random positions inside each main section, using zone slots so they
+     stay near the edges and don't crowd the centre content. */
+  const DECOR_ICONS = [
+    'd-leaf', 'd-flower', 'd-sprout', 'd-wheat',
+    'd-cherry', 'd-grape', 'd-citrus',
+  ];
+  const DECOR_COLORS = [
+    'text-sage', 'text-sageDark', 'text-brick',
+    'text-terra', 'text-ochre', 'text-sageDeep',
+  ];
+  const DECOR_SECTIONS = ['about', 'cuisine', 'garden', 'services', 'gallery'];
+  const DECOR_PER_SECTION = 4;
+  const SVG_NS = 'http://www.w3.org/2000/svg';
+
+  const rand = (min, max) => Math.random() * (max - min) + min;
+  const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
+
+  /* Six "edge zones" — one near each corner plus two on the long mid-sides.
+     Each call returns absolute placement values that keep the doodle out of
+     the section's central 60% (where the text and images sit). */
+  function pickZone() {
+    const zones = [
+      { top:  rand(3, 14)  + '%', left:  rand(2, 10) + '%' },  // top-left
+      { top:  rand(3, 14)  + '%', right: rand(2, 10) + '%' },  // top-right
+      { bottom: rand(4, 16) + '%', left:  rand(2, 10) + '%' }, // bottom-left
+      { bottom: rand(4, 16) + '%', right: rand(2, 10) + '%' }, // bottom-right
+      { top:  rand(38, 60) + '%', left:  rand(1, 6)  + '%' },  // mid-left
+      { top:  rand(38, 60) + '%', right: rand(1, 6)  + '%' },  // mid-right
+    ];
+    return pick(zones);
+  }
+
+  function makeDecor() {
+    const svg = document.createElementNS(SVG_NS, 'svg');
+    svg.setAttribute('class', 'decor ' + pick(DECOR_COLORS));
+    svg.setAttribute('aria-hidden', 'true');
+    const size = Math.round(rand(36, 58));
+    const rot = Math.round(rand(-22, 22));
+    const opacity = rand(0.35, 0.55).toFixed(2);
+    const zone = pickZone();
+    const zoneStyle = Object.entries(zone)
+      .map(([k, v]) => `${k}:${v}`)
+      .join(';');
+    svg.setAttribute(
+      'style',
+      `${zoneStyle};width:${size}px;height:${size}px;transform:rotate(${rot}deg);opacity:${opacity}`
+    );
+    const use = document.createElementNS(SVG_NS, 'use');
+    use.setAttribute('href', '#' + pick(DECOR_ICONS));
+    svg.appendChild(use);
+    return svg;
+  }
+
+  function scatterDecor() {
+    DECOR_SECTIONS.forEach((id) => {
+      const section = document.getElementById(id);
+      if (!section) return;
+      // shuffle zone usage per section so corners aren't always picked first
+      for (let i = 0; i < DECOR_PER_SECTION; i++) {
+        section.insertBefore(makeDecor(), section.firstChild);
+      }
+    });
+  }
+
   function init() {
     bindHeader();
     bindMobileNav();
     bindLocaleButtons();
+    // scatterDecor();  // disabled — re-enable to scatter herb / fruit doodles
     setLocale(detectInitialLocale());
   }
 

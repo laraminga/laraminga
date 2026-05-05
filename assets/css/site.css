@@ -34,12 +34,21 @@ section[id] { scroll-margin-top: 4.5rem; }
    without weighing the typography down */
 .hero-text {
   text-shadow:
-    0 0 1px  rgba(0, 0, 0, .7),
-    0 1px 3px rgba(0, 0, 0, .55),
-    0 2px 14px rgba(0, 0, 0, .4);
+    0 0 1px  rgba(0, 0, 0, .85),
+    0 1px 4px rgba(0, 0, 0, .7),
+    0 3px 18px rgba(0, 0, 0, .55);
 }
 /* buttons inside the hero never inherit the shadow */
 .hero-text a { text-shadow: none; }
+
+/* scattered hand-drawn herb / flower / food doodles, placed
+   as background decorations across the sections */
+.decor {
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
 
 /* service-card bullets: dot + hanging indent so wrapped lines align */
 .bullet-list li {
@@ -108,10 +117,9 @@ picture > source { display: none; }
 /* === locale flag toggle === */
 .locale-btn {
   display: inline-flex;
-  border-radius: 3px;
+  border-radius: 5px;
   overflow: hidden;
   opacity: 0.4;
-  transition: opacity .2s ease;
   padding: 0;
   background: transparent;
   border: 0;

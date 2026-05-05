@@ -10,7 +10,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -38,24 +38,86 @@
             beigeDeep: '#5d4a1c',
           },
           fontFamily: {
-            hand: ['Caveat', 'cursive'],
+            hand: ['"Dancing Script"', 'cursive'],
             serif: ['Lora', 'Georgia', 'serif'],
           },
         },
       },
     };
   </script>
-  <link rel="stylesheet" href="assets/css/site.css?v=16" />
+  <link rel="stylesheet" href="assets/css/site.css?v=29" />
 </head>
 
 <body class="font-serif text-ink bg-butter">
+
+  <!-- decorative icons from Lucide (lucide.dev — ISC license, free for any use).
+       Each <symbol> is one icon; they're reused as <use href="#…"> across sections. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="d-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19.2 2.96a1 1 0 0 1 1.8.5c0 12-7 17-17 17"/>
+        <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+      </symbol>
+      <symbol id="d-flower" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="3"/>
+        <path d="M12 16.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 1 1 12 7.5a4.5 4.5 0 1 1 4.5 4.5 4.5 4.5 0 1 1-4.5 4.5"/>
+        <path d="M12 7.5V9"/>
+        <path d="M7.5 12H9"/>
+        <path d="M16.5 12H15"/>
+        <path d="M12 16.5V15"/>
+        <path d="m8 8 1.88 1.88"/>
+        <path d="M14.12 9.88 16 8"/>
+        <path d="m8 16 1.88-1.88"/>
+        <path d="M14.12 14.12 16 16"/>
+      </symbol>
+      <symbol id="d-sprout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M7 20h10"/>
+        <path d="M10 20c5.5-2.5.8-6.4 3-10"/>
+        <path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/>
+        <path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/>
+      </symbol>
+      <symbol id="d-wheat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2 22 16 8"/>
+        <path d="M3.47 12.53 5 11l1.53 1.53a3.5 3.5 0 0 1 0 4.94L5 19l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/>
+        <path d="M7.47 8.53 9 7l1.53 1.53a3.5 3.5 0 0 1 0 4.94L9 15l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/>
+        <path d="M11.47 4.53 13 3l1.53 1.53a3.5 3.5 0 0 1 0 4.94L13 11l-1.53-1.53a3.5 3.5 0 0 1 0-4.94Z"/>
+        <path d="M20 2h2v2a4 4 0 0 1-4 4h-2V6a4 4 0 0 1 4-4Z"/>
+        <path d="M11.47 17.47 13 19l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L5 19l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z"/>
+        <path d="M15.47 13.47 17 15l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L9 15l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z"/>
+        <path d="M19.47 9.47 21 11l-1.53 1.53a3.5 3.5 0 0 1-4.94 0L13 11l1.53-1.53a3.5 3.5 0 0 1 4.94 0Z"/>
+      </symbol>
+      <symbol id="d-cherry" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2 17a5 5 0 0 0 10 0c0-2.76-2.5-5-5-3-2.5-2-5 .24-5 3Z"/>
+        <path d="M12 17a5 5 0 0 0 10 0c0-2.76-2.5-5-5-3-2.5-2-5 .24-5 3Z"/>
+        <path d="M7 14c3.22-2.91 4.29-8.75 5-12 1.66 2.38 4.94 9 5 12"/>
+        <path d="M22 9c-4.29 0-7.14-2.33-10-7 5.71 0 10 4.67 10 7Z"/>
+      </symbol>
+      <symbol id="d-grape" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 5V2l-5.89 5.89"/>
+        <circle cx="16.6" cy="15.89" r="3"/>
+        <circle cx="8.11" cy="7.4" r="3"/>
+        <circle cx="12.35" cy="11.65" r="3"/>
+        <circle cx="13.91" cy="5.85" r="3"/>
+        <circle cx="18.15" cy="10.09" r="3"/>
+        <circle cx="6.56" cy="13.2" r="3"/>
+        <circle cx="10.8" cy="17.44" r="3"/>
+        <circle cx="5" cy="19" r="3"/>
+      </symbol>
+      <symbol id="d-citrus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21.66 17.67a1.08 1.08 0 0 1-.04 1.6A12 12 0 0 1 4.73 2.38a1.1 1.1 0 0 1 1.61-.04z"/>
+        <path d="M19.65 15.66A8 8 0 0 1 8.35 4.34"/>
+        <path d="m14 10-5.5 5.5"/>
+        <path d="M14 17.85V10H6.15"/>
+      </symbol>
+    </defs>
+  </svg>
 
   <!-- HEADER -->
   <header id="header" class="relative md:fixed md:top-0 md:inset-x-0 z-50">
     <div class="max-w-6xl mx-auto px-5 sm:px-7 py-4 flex items-center justify-between gap-4">
       <a href="#top" class="logo font-hand text-3xl md:text-4xl leading-none whitespace-nowrap">la raminga</a>
 
-      <nav class="hidden md:flex items-center gap-7 text-sm">
+      <nav class="hidden md:flex items-center gap-7 text-base">
         <a href="#about" class="hover:text-brick transition" data-i18n="nav.about"></a>
         <a href="#cuisine" class="hover:text-brick transition" data-i18n="nav.cuisine"></a>
         <a href="#garden" class="hover:text-brick transition" data-i18n="nav.garden"></a>
@@ -133,13 +195,13 @@
   </section>
 
   <!-- ABOUT -->
-  <section id="about" class="py-20 md:py-28 px-5 sm:px-7 bg-washSand">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-5 gap-10 md:gap-16 items-center">
+  <section id="about" class="relative overflow-hidden py-20 md:py-28 px-5 sm:px-7 bg-washSand">
+    <div class="relative z-10 max-w-6xl mx-auto grid md:grid-cols-5 gap-10 md:gap-16 items-center">
       <div class="md:col-span-3">
         <h2 class="font-hand text-5xl md:text-6xl text-sandDeep leading-none" data-i18n="about.title"></h2>
-        <p class="mt-6 text-lg leading-relaxed" data-i18n="about.p1"></p>
-        <p class="mt-4 text-lg leading-relaxed" data-i18n="about.p2"></p>
-        <p class="mt-4 text-lg leading-relaxed" data-i18n="about.p3"></p>
+        <p class="mt-6 text-lg md:text-xl leading-relaxed" data-i18n="about.p1"></p>
+        <p class="mt-4 text-lg md:text-xl leading-relaxed" data-i18n="about.p2"></p>
+        <p class="mt-4 text-lg md:text-xl leading-relaxed" data-i18n="about.p3"></p>
       </div>
       <div class="md:col-span-2">
         <div class="relative aspect-[3/4] overflow-hidden rounded-2xl bg-cream">
@@ -150,8 +212,8 @@
   </section>
 
   <!-- CUISINE -->
-  <section id="cuisine" class="py-20 md:py-28 px-5 sm:px-7 bg-washHoney">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-5 gap-10 md:gap-16 items-center">
+  <section id="cuisine" class="relative overflow-hidden py-20 md:py-28 px-5 sm:px-7 bg-washHoney">
+    <div class="relative z-10 max-w-6xl mx-auto grid md:grid-cols-5 gap-10 md:gap-16 items-center">
       <div class="md:col-span-2 order-2 md:order-1">
         <div class="relative aspect-[3/4] overflow-hidden rounded-2xl bg-butter">
           <picture><source srcset="img/tagliatelle-green-pesto-walnuts-parmesan.webp" type="image/webp" /><img src="img/tagliatelle-green-pesto-walnuts-parmesan.jpeg" alt="" loading="lazy" decoding="async" class="w-full h-full object-cover" /></picture>
@@ -159,21 +221,21 @@
       </div>
       <div class="md:col-span-3 order-1 md:order-2">
         <h2 class="font-hand text-5xl md:text-6xl text-honeyDeep leading-none" data-i18n="cuisine.title"></h2>
-        <p class="mt-5 text-lg leading-relaxed" data-i18n="cuisine.lead"></p>
-        <p class="mt-4 text-lg leading-relaxed" data-i18n="cuisine.body1"></p>
-        <p class="mt-4 text-lg leading-relaxed" data-i18n="cuisine.body2"></p>
-        <p class="mt-4 text-lg leading-relaxed" data-i18n="cuisine.body3"></p>
+        <p class="mt-5 text-lg md:text-xl leading-relaxed" data-i18n="cuisine.lead"></p>
+        <p class="mt-4 text-lg md:text-xl leading-relaxed" data-i18n="cuisine.body1"></p>
+        <p class="mt-4 text-lg md:text-xl leading-relaxed" data-i18n="cuisine.body2"></p>
+        <p class="mt-4 text-lg md:text-xl leading-relaxed" data-i18n="cuisine.body3"></p>
       </div>
     </div>
   </section>
 
   <!-- GARDEN -->
-  <section id="garden" class="py-20 md:py-28 px-5 sm:px-7 bg-washSage">
-    <div class="max-w-6xl mx-auto grid md:grid-cols-5 gap-10 md:gap-16 items-center">
+  <section id="garden" class="relative overflow-hidden py-20 md:py-28 px-5 sm:px-7 bg-washSage">
+    <div class="relative z-10 max-w-6xl mx-auto grid md:grid-cols-5 gap-10 md:gap-16 items-center">
       <div class="md:col-span-3">
         <h2 class="font-hand text-5xl md:text-6xl text-sageDeep leading-none" data-i18n="garden.title"></h2>
-        <p class="mt-6 text-lg leading-relaxed" data-i18n="garden.p1"></p>
-        <p class="mt-4 text-lg leading-relaxed" data-i18n="garden.p2"></p>
+        <p class="mt-6 text-lg md:text-xl leading-relaxed" data-i18n="garden.p1"></p>
+        <p class="mt-4 text-lg md:text-xl leading-relaxed" data-i18n="garden.p2"></p>
       </div>
       <div class="md:col-span-2">
         <div class="relative aspect-[3/4] overflow-hidden rounded-2xl bg-cream">
@@ -184,22 +246,22 @@
   </section>
 
   <!-- SERVICES -->
-  <section id="services" class="py-20 md:py-28 px-5 sm:px-7 bg-washRose">
-    <div class="max-w-6xl mx-auto">
+  <section id="services" class="relative overflow-hidden py-20 md:py-28 px-5 sm:px-7 bg-washRose">
+    <div class="relative z-10 max-w-6xl mx-auto">
       <div class="md:text-center">
         <h2 class="font-hand text-5xl md:text-6xl text-roseDeep leading-none" data-i18n="services.title"></h2>
-        <p class="mt-4 text-lg leading-relaxed" data-i18n="services.subtitle"></p>
+        <p class="mt-4 text-lg md:text-xl leading-relaxed" data-i18n="services.subtitle"></p>
       </div>
       <div id="services-list" class="mt-12 grid md:grid-cols-3 gap-6 md:gap-7"></div>
     </div>
   </section>
 
   <!-- GALLERY -->
-  <section id="gallery" class="py-20 md:py-28 px-5 sm:px-7 bg-washBeige">
-    <div class="max-w-7xl mx-auto">
+  <section id="gallery" class="relative overflow-hidden py-20 md:py-28 px-5 sm:px-7 bg-washBeige">
+    <div class="relative z-10 max-w-7xl mx-auto">
       <div class="md:text-center">
         <h2 class="font-hand text-5xl md:text-6xl text-beigeDeep leading-none" data-i18n="gallery.title"></h2>
-        <p class="mt-3 text-lg leading-relaxed" data-i18n="gallery.subtitle"></p>
+        <p class="mt-3 text-lg md:text-xl leading-relaxed" data-i18n="gallery.subtitle"></p>
       </div>
 
       <div class="gallery mt-10">
@@ -242,7 +304,7 @@
   <section id="contact" class="py-20 md:py-28 px-5 sm:px-7 bg-ink text-cream">
     <div class="max-w-2xl mx-auto text-center">
       <h2 class="font-hand text-6xl md:text-7xl leading-none" data-i18n="contact.title"></h2>
-      <p class="mt-6 text-lg leading-relaxed" data-i18n="contact.lead"></p>
+      <p class="mt-6 text-lg md:text-xl leading-relaxed" data-i18n="contact.lead"></p>
 
       <a href="#" data-whatsapp target="_blank" rel="noopener"
         class="mt-8 inline-flex items-center justify-center gap-3 bg-brick hover:bg-terra px-8 py-4 rounded-full text-lg font-medium transition shadow-xl">
@@ -252,7 +314,7 @@
 
       <p class="mt-3 text-sm text-cream/70" data-i18n="contact.leadNote"></p>
 
-      <p class="mt-8 text-lg">
+      <p class="mt-8 text-lg md:text-xl">
         <span data-i18n="contact.emailIntro"></span>
         <a id="email-link" href="mailto:vale.sfra@hotmail.it" class="underline underline-offset-4 hover:opacity-80">vale.sfra@hotmail.it</a>
       </p>
@@ -268,6 +330,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/site.js?v=16"></script>
+  <script src="assets/js/site.js?v=29"></script>
 </body>
 </html>
