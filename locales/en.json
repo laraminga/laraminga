@@ -13,23 +13,22 @@
   },
   "hero": {
     "kicker": "home restaurant in Lunigiana, Italy",
-    "title": "la raminga",
-    "subtitle": "Seasonal, handmade cooking. Hand-rolled pasta, vegetables from the garden, Italian flavours mingling with scents I've picked up travelling. More an experience than a dinner.",
+    "title": "La Raminga",
+    "subtitle": "Seasonal cooking, pasta hand-rolled with the mattarello, vegetables from the garden, Italian flavours coloured by scents from other lands. This is how I tell my story.",
     "cta": "Get in touch",
     "secondary": "Get to know me"
   },
   "about": {
     "title": "Hi, I'm Valentina",
-    "p1": "I grew up in Bergamo, travelled a lot, and now I live in Lunigiana. I've worked as a cook for years, with plenty of other jobs in between, but cooking is the one thing I always come back to: when I'm happy, when I'm sad, in a tent over a fire, on holiday, anywhere.",
-    "p2": "La Raminga is my way of opening my home to people who want to eat well and stick around for a chat. No restaurant, no big numbers: just thoughtful cooking, a few seats, and time at the table.",
-    "p3": "I'm vegetarian myself, but I cook meat and fish too. At my table you'll find a bit of everything."
+    "p1": "Born in Bergamo and a passionate traveller, I've recently landed in Lunigiana, a valley caught between forest and sea. I've worked as a cook for years, alternating with jobs among vegetable patches and gardens, and now, after so much wandering, I'm opening my home.",
+    "p2": "For me this is the chance to savour the freedom of choosing which flavour, which memory, which colours to bring to the table. Different every time, new every time."
   },
   "cuisine": {
     "title": "How I cook",
-    "lead": "Bold, colourful, handmade. Seasonal, and as close to home as I can manage.",
-    "body1": "Everything's made by hand: fresh pasta, ravioli, gnocchi, focaccia, crackers, baked desserts, crêpes. Vegetables lead the way. The wild herbs and whatever's ready in the garden out back set the menu for the week, along with whatever idea I happen to be chasing.",
-    "body2": "I love mixing the Italian dishes I grew up with (parmigiana, pasta alla Norma, lemon risotto) with flavours from further east: ginger, soy, grains, legumes. Every now and then I'll throw a themed night: a full-on spicy dinner, a vegetarian burger evening, or a big shared spread with focaccia and fried polenta for mopping up the sauce.",
-    "body3": "Vegan menus are no problem. Gluten-free, we can work out together. Intolerances I can handle. For serious allergies, though, I can't guarantee an allergen-free kitchen, so it helps to give me a heads-up in advance."
+    "lead": "Bold, colourful, seasonal, Italian… a little spiced.",
+    "body1": "Fresh pasta, focaccia, sauces and pestos take centre stage on the more traditional evenings, then make way for menus with more eastern flavours and themed nights.",
+    "body2": "A few seats only — mine is not a restaurant. I choose the intimacy of home for those who want to enjoy a meal and a real conversation. For those who are after an encounter as much as good food.",
+    "body3": "I'm happy to adapt for vegan requests or intolerances — let's talk it through when you book."
   },
   "services": {
     "title": "What I cook",
@@ -74,8 +73,8 @@
   },
   "garden": {
     "title": "The garden",
-    "p1": "The vegetable garden is right behind the house, and I tend it together with the neighbours. From June and July onwards, the first harvest goes straight onto the plate.",
-    "p2": "A garden teaches you things: patience, the unexpected, the insects, the wind, the work. When a vegetable goes from seed to plate, the circle closes. Anything I don't grow myself comes from small local producers: flour from the mill down the road, eggs from the neighbours."
+    "p1": "The garden at home, which I share with the neighbours, is ready by now to take centre stage.",
+    "p2": "The hard work pays off in the intense, honest flavour of the vegetables I try to bring out in every dish. Anything that doesn't come from here comes, as much as possible, from local producers and farmers."
   },
   "gallery": {
     "title": "A taste",

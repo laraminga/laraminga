@@ -13,23 +13,22 @@
   },
   "hero": {
     "kicker": "home restaurant in Lunigiana",
-    "title": "la raminga",
-    "subtitle": "Cucina di stagione, fatta a mano. Pasta tirata al mattarello, verdure dell'orto, sapori italiani che incontrano profumi raccolti nei viaggi. Un'esperienza più che una cena.",
+    "title": "La Raminga",
+    "subtitle": "Cucina stagionale, pasta tirata al mattarello, verdure dell'orto, sapori italiani che si colorano di profumi di altre terre. Così, mi racconto.",
     "cta": "Scrivimi",
     "secondary": "Conoscimi"
   },
   "about": {
     "title": "Ciao, sono Valentina",
-    "p1": "Vengo da Bergamo, ho viaggiato tanto e ora vivo in Lunigiana. Ho lavorato anni come cuoca e in molti altri mestieri, ma cucinare è quello che mi accompagna sempre, quando sono felice, triste, in tenda sul fuoco o in vacanza.",
-    "p2": "La Raminga è il mio modo di aprire casa a chi ha voglia di mangiare bene e di fermarsi a chiacchierare. Niente ristorante, niente grandi numeri: solo piatti curati, pochi posti e tempo a tavola.",
-    "p3": "Sono vegetariana, ma cucino anche carne e pesce: a tavola con me trovi tutto."
+    "p1": "Bergamasca d'origine e viaggiatrice appassionata, sono da poco arrivata in Lunigiana, valle tra bosco e mare. Ho lavorato come cuoca per anni, alternando lavori tra orti e giardini e ora, dopo tanto vagabondare, apro la mia casa.",
+    "p2": "È per me questa l'occasione di gustarmi la libertà di scegliere quale sapore, quale ricordo, quali colori portare in tavola. Ogni volta diversi, ogni volta nuovi."
   },
   "cuisine": {
     "title": "La mia cucina",
-    "lead": "Gustosa, colorata, fatta a mano. Stagionale e a chilometro zero quando posso.",
-    "body1": "Tutto a mano: pasta fresca, ravioli, gnocchi, focacce, cracker, dolci da forno e crêpe. Le verdure hanno il ruolo principale: sono le erbe spontanee e l'orto dietro casa a decidere il menù della settimana, insieme alle idee del momento.",
-    "body2": "Mi piace mescolare i piatti italiani che amo (parmigiana, pasta alla Norma, risotto al limone) con sapori più asiatici: zenzero, soia, cereali, legumi. Ogni tanto invento una serata a tema: cena tutta piccante, hamburger vegetariana, cucceria con focaccia e polenta fritta da scarpetta.",
-    "body3": "Per i menù vegani vado tranquilla, per il senza glutine ne parliamo, e gestisco intolleranze. Per le allergie serie però non posso garantire una cucina priva di allergeni, meglio dirmelo prima."
+    "lead": "Gustosa, colorata, stagionale, italiana… un po' speziata.",
+    "body1": "Pasta fresca, focaccia, sughi e pesti saranno protagonisti delle serate più tradizionali, lasciando poi il posto a menù dai sapori più orientali e serate a tema.",
+    "body2": "Pochi posti, il mio non è un ristorante. Scelgo l'intimità della casa per chi ha voglia di gustarsi una cena e fare due chiacchiere. Per chi ha voglia di un incontro oltre che di buon cibo.",
+    "body3": "Sono disponibile a variazioni per richieste vegane o intolleranze, parliamone al momento della prenotazione."
   },
   "services": {
     "title": "I servizi",
@@ -74,8 +73,8 @@
   },
   "garden": {
     "title": "L'orto",
-    "p1": "L'orto è dietro casa, lo curo insieme ai vicini. Da giugno e luglio i primi raccolti finiscono direttamente nei piatti.",
-    "p2": "Dall'orto si imparano cose: la pazienza, gli imprevisti, gli insetti, il vento, la fatica. Quando una verdura passa dal seme al tavolo, il cerchio si chiude. Quello che non viene da qui arriva da piccoli produttori della zona: farine dal mulino vicino, uova dai contadini intorno."
+    "p1": "L'orto di casa, che condivido con i vicini, è ormai pronto per essere protagonista indiscusso.",
+    "p2": "La fatica del lavoro è ripagata dal gusto intenso e vero delle verdure che cerco di mettere in risalto in ogni portata. Quello che non viene da qui arriva il più possibile da produttori locali e contadini."
   },
   "gallery": {
     "title": "Un assaggio",

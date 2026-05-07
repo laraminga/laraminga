@@ -39,40 +39,6 @@ const SERVICE_IMG = [
   { src: 'bowls-pesto-purple-cream-condiments' },
 ];
 
-// Gallery list — order matters
-const GALLERY = [
-  'eggplant-parmigiana-white-marble-plate',
-  'pea-vines-flowering-green-tendrils',
-  'peas-climbing-beside-onion-bed',
-  'golden-focaccia-bread-crusty-dimples',
-  'beets-onions-sprouting-garden-row',
-  'radicchio-halves-cutting-board-purple',
-  'three-dumplings-wooden-cutting-board',
-  'fresh-pasta-sheets-dusted-flour',
-  'handmade-casoncelli-dumplings-flour-tray',
-  'terrace-herb-garden-potted-plants',
-  'savory-cheesecake-vegetable-ribbons-sauce',
-  'tiny-clover-sprouts-purple-green',
-  'poached-egg-green-chard-sauce',
-  'seed-crackers-wooden-bowl-chunks',
-  'roasted-tomatoes-herbs-olive-oil',
-  'cold-frame-growing-young-leeks',
-  'spinach-seedlings-rooted-dry-ground',
-  'grilled-eggplant-slices-basil-leaves',
-  'tagliatelle-green-pesto-walnuts-parmesan',
-  'tomato-plant-blooming-yellow-flowers',
-  'freshly-harvested-green-olives-crate',
-  'roasted-sweet-potato-garlic-cloves',
-  'parmigiana-basil-leaves-outdoor-table',
-  'cold-frame-garlic-shoots-glass',
-  'folded-crepe-topped-chestnut-preserve',
-  'savoy-cabbage-rolls-stuffed-packed',
-  'bowls-pesto-purple-cream-condiments',
-  'savory-cheesecake-plated-above-sauce',
-  'terrace-table-blue-plates-mountains',
-  'terrace-dining-table-mountain-view',
-];
-
 // ─── paths + helpers ─────────────────────────────────────────────────────
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.join(ROOT, 'dist');
@@ -242,7 +208,6 @@ async function buildHtml({ css, js, locales }) {
   );
 
   // expand placeholders
-  html = html.replace('<!-- @gallery -->',  renderGallery());
   html = html.replace('<!-- @services -->', renderServices(it, waHref));
   html = html.replace('<!-- @jsonld -->',   renderJsonLd(it));
 
@@ -310,15 +275,6 @@ function preRender(html, locale) {
   );
 
   return html;
-}
-
-function renderGallery() {
-  return GALLERY
-    .map((name) => {
-      const alt = altFromName(name);
-      return `<figure><picture><source srcset="img/${name}.webp" type="image/webp"><img src="img/${name}.jpeg" alt="${escAttr(alt)}" loading="lazy" decoding="async"></picture></figure>`;
-    })
-    .join('');
 }
 
 function renderServices(locale, waHref) {
