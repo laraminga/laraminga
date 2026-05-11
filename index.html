@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="it">
+<html lang="it" data-prerender="it">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#fbf5e7">
+  <meta name="theme-color" content="#f7f0e7">
 
   <title data-i18n="meta.title">La Raminga · la cucina di Valentina</title>
   <meta name="description" content="" data-i18n="meta.description" data-i18n-attr="content">
@@ -49,7 +49,8 @@
         extend: {
           colors: {
             cream: '#fbf5e7', butter: '#fdf8f0', brick: '#c25539', terra: '#a23f24',
-            sage: '#7a8d5a', sageDark: '#566840', ochre: '#d4a149', ink: '#2a1f17',
+            sage: '#7a8d5a', sageDark: '#a23425', forest: '#c43726', ochre: '#d4a149', ink: '#3a1f15',
+            pageBg: '#f7f0e7',
             washSky: '#e6eff1', washHoney: '#faf2dc', washSage: '#eef2e1',
             washRose: '#f9ebdf', washBeige: '#f3ecd9',
             skyDeep: '#2f5763', honeyDeep: '#6b591e', sageDeep: '#4f5a2a',
@@ -57,7 +58,7 @@
           },
           fontFamily: {
             hand: ['"Dancing Script"', 'cursive'],
-            serif: ['Lora', 'Georgia', 'serif'],
+            serif: ['Quattrocento', 'Georgia', 'serif'],
           },
         },
       },
@@ -68,7 +69,7 @@
   <!-- @jsonld -->
 </head>
 
-<body class="font-serif text-ink bg-butter">
+<body class="font-serif text-ink bg-pageBg">
 
   <!-- HEADER -->
   <header id="header" class="relative md:fixed md:top-0 md:inset-x-0 z-50">
@@ -80,6 +81,7 @@
         <a href="#cuisine"  class="hover:underline underline-offset-[6px] decoration-2 decoration-current" data-i18n="nav.cuisine"></a>
         <a href="#garden"   class="hover:underline underline-offset-[6px] decoration-2 decoration-current" data-i18n="nav.garden"></a>
         <a href="#services" class="hover:underline underline-offset-[6px] decoration-2 decoration-current" data-i18n="nav.services"></a>
+        <a href="#menus"    class="hover:underline underline-offset-[6px] decoration-2 decoration-current" data-i18n="nav.menus"></a>
         <a href="#gallery"  class="hover:underline underline-offset-[6px] decoration-2 decoration-current" data-i18n="nav.gallery"></a>
         <a href="#contact"  class="hover:underline underline-offset-[6px] decoration-2 decoration-current" data-i18n="nav.contact"></a>
       </nav>
@@ -125,6 +127,7 @@
         <a href="#cuisine"  data-i18n="nav.cuisine"></a>
         <a href="#garden"   data-i18n="nav.garden"></a>
         <a href="#services" data-i18n="nav.services"></a>
+        <a href="#menus"    data-i18n="nav.menus"></a>
         <a href="#gallery"  data-i18n="nav.gallery"></a>
         <a href="#contact"  data-i18n="nav.contact"></a>
       </div>
@@ -145,29 +148,29 @@
         <div class="absolute inset-0 hero-vignette"></div>
       </div>
 
-      <div class="relative max-w-3xl mx-auto w-full px-5 sm:px-7 py-32 md:py-40 text-cream text-center hero-text">
+      <div class="relative max-w-5xl mx-auto w-full px-5 sm:px-7 py-32 md:py-40 text-cream text-center hero-text">
         <h1 class="font-hand leading-[0.85] text-cream text-7xl sm:text-8xl md:text-[9rem] whitespace-nowrap" data-i18n="hero.title"></h1>
-        <p class="mt-6 text-base sm:text-lg md:text-xl uppercase tracking-[0.18em] text-cream font-medium" data-i18n="hero.kicker"></p>
-        <p class="mt-6 mx-auto max-w-2xl text-lg md:text-xl text-cream leading-relaxed" data-i18n="hero.subtitle"></p>
+        <p class="mt-6 text-lg sm:text-xl md:text-2xl uppercase tracking-[0.18em] text-cream font-medium" data-i18n="hero.kicker"></p>
+        <p class="mt-6 mx-auto max-w-3xl text-xl md:text-2xl text-cream leading-relaxed" data-i18n="hero.subtitle"></p>
 
-        <div class="mt-12 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+        <div class="mt-12 flex flex-col items-center sm:flex-row sm:items-stretch gap-3 sm:gap-4 justify-center">
           <a href="#" data-whatsapp target="_blank" rel="noopener"
-            class="inline-flex items-center justify-center bg-brick hover:bg-terra text-white px-7 py-3 rounded-full font-medium text-base md:text-lg transition"
+            class="inline-flex items-center justify-center bg-forest hover:bg-sageDark text-cream px-7 py-3 rounded-full font-medium text-base md:text-lg transition w-44 sm:w-auto"
             data-i18n="hero.cta"></a>
           <a href="#about"
-            class="inline-flex items-center justify-center bg-cream/10 hover:bg-cream/20 backdrop-blur text-cream border border-cream/40 px-7 py-3 rounded-full font-medium text-base md:text-lg transition"
+            class="inline-flex items-center justify-center bg-cream/10 hover:bg-cream/20 backdrop-blur text-cream border border-cream/40 px-7 py-3 rounded-full font-medium text-base md:text-lg transition w-44 sm:w-auto"
             data-i18n="hero.secondary"></a>
         </div>
       </div>
     </section>
 
     <!-- ABOUT -->
-    <section id="about" class="relative overflow-hidden py-20 md:py-28 px-5 sm:px-7 bg-washSky">
+    <section id="about" class="relative overflow-hidden py-14 md:py-20 px-5 sm:px-7">
       <div class="relative z-10 max-w-6xl mx-auto grid md:grid-cols-5 gap-10 md:gap-16 items-center">
         <div class="md:col-span-3">
-          <h2 class="font-hand text-5xl md:text-6xl text-skyDeep leading-none" data-i18n="about.title"></h2>
-          <p class="mt-6 text-lg md:text-xl leading-relaxed" data-i18n="about.p1"></p>
-          <p class="mt-4 text-lg md:text-xl leading-relaxed" data-i18n="about.p2"></p>
+          <h2 class="font-hand text-5xl md:text-6xl text-ink leading-none" data-i18n="about.title"></h2>
+          <p class="mt-6 text-xl md:text-2xl leading-relaxed" data-i18n="about.p1"></p>
+          <p class="mt-4 text-xl md:text-2xl leading-relaxed" data-i18n="about.p2"></p>
         </div>
         <div class="md:col-span-2">
           <div class="relative aspect-[3/4] overflow-hidden rounded-2xl bg-cream">
@@ -181,7 +184,7 @@
     </section>
 
     <!-- CUISINE -->
-    <section id="cuisine" class="relative overflow-hidden py-20 md:py-28 px-5 sm:px-7 bg-washHoney">
+    <section id="cuisine" class="relative overflow-hidden py-14 md:py-20 px-5 sm:px-7">
       <div class="relative z-10 max-w-6xl mx-auto grid md:grid-cols-5 gap-10 md:gap-16 items-center">
         <div class="md:col-span-2 order-2 md:order-1">
           <div class="relative aspect-[3/4] overflow-hidden rounded-2xl bg-butter">
@@ -192,22 +195,22 @@
           </div>
         </div>
         <div class="md:col-span-3 order-1 md:order-2">
-          <h2 class="font-hand text-5xl md:text-6xl text-honeyDeep leading-none" data-i18n="cuisine.title"></h2>
-          <p class="mt-5 text-lg md:text-xl leading-relaxed" data-i18n="cuisine.lead"></p>
-          <p class="mt-4 text-lg md:text-xl leading-relaxed" data-i18n="cuisine.body1"></p>
-          <p class="mt-4 text-lg md:text-xl leading-relaxed" data-i18n="cuisine.body2"></p>
-          <p class="mt-4 text-lg md:text-xl leading-relaxed" data-i18n="cuisine.body3"></p>
+          <h2 class="font-hand text-5xl md:text-6xl text-ink leading-none" data-i18n="cuisine.title"></h2>
+          <p class="mt-5 text-xl md:text-2xl leading-relaxed" data-i18n="cuisine.lead"></p>
+          <p class="mt-4 text-xl md:text-2xl leading-relaxed" data-i18n="cuisine.body1"></p>
+          <p class="mt-4 text-xl md:text-2xl leading-relaxed" data-i18n="cuisine.body2"></p>
+          <p class="mt-4 text-xl md:text-2xl leading-relaxed" data-i18n="cuisine.body3"></p>
         </div>
       </div>
     </section>
 
     <!-- GARDEN -->
-    <section id="garden" class="relative overflow-hidden py-20 md:py-28 px-5 sm:px-7 bg-washSage">
+    <section id="garden" class="relative overflow-hidden py-14 md:py-20 px-5 sm:px-7">
       <div class="relative z-10 max-w-6xl mx-auto grid md:grid-cols-5 gap-10 md:gap-16 items-center">
         <div class="md:col-span-3">
-          <h2 class="font-hand text-5xl md:text-6xl text-sageDeep leading-none" data-i18n="garden.title"></h2>
-          <p class="mt-6 text-lg md:text-xl leading-relaxed" data-i18n="garden.p1"></p>
-          <p class="mt-4 text-lg md:text-xl leading-relaxed" data-i18n="garden.p2"></p>
+          <h2 class="font-hand text-5xl md:text-6xl text-ink leading-none" data-i18n="garden.title"></h2>
+          <p class="mt-6 text-xl md:text-2xl leading-relaxed" data-i18n="garden.p1"></p>
+          <p class="mt-4 text-xl md:text-2xl leading-relaxed" data-i18n="garden.p2"></p>
         </div>
         <div class="md:col-span-2">
           <div class="relative aspect-[3/4] overflow-hidden rounded-2xl bg-cream">
@@ -221,24 +224,112 @@
     </section>
 
     <!-- SERVICES -->
-    <section id="services" class="relative overflow-hidden py-20 md:py-28 px-5 sm:px-7 bg-washRose">
+    <section id="services" class="relative overflow-hidden py-14 md:py-20 px-5 sm:px-7">
       <div class="relative z-10 max-w-6xl mx-auto">
         <div class="md:text-center">
-          <h2 class="font-hand text-5xl md:text-6xl text-roseDeep leading-none" data-i18n="services.title"></h2>
-          <p class="mt-4 text-lg md:text-xl leading-relaxed" data-i18n="services.subtitle"></p>
+          <h2 class="font-hand text-5xl md:text-6xl text-ink leading-none" data-i18n="services.title"></h2>
+          <p class="mt-4 text-xl md:text-2xl leading-relaxed" data-i18n="services.subtitle"></p>
         </div>
         <div id="services-list" class="mt-12 grid md:grid-cols-3 gap-6 md:gap-7">
-          <!-- @services -->
+
+          <article class="flex flex-col bg-white text-ink rounded-2xl overflow-hidden border border-ochre/20 shadow-sm">
+            <div class="aspect-[5/3] overflow-hidden bg-cream">
+              <picture>
+                <source srcset="img/terrace-table-blue-plates-mountains.webp" type="image/webp">
+                <img src="img/terrace-table-blue-plates-mountains.jpeg" alt="terrace table blue plates mountains" loading="lazy" decoding="async" class="w-full h-full object-cover">
+              </picture>
+            </div>
+            <div class="p-6 md:p-7 flex-1 flex flex-col">
+              <h3 class="text-2xl font-semibold">Home restaurant</h3>
+              <p class="mt-3 leading-relaxed">Vieni a cena da me. Sala interna quando fa freddo, terrazza con vista quando c'è il sole. Massimo otto persone.</p>
+              <ul class="bullet-list mt-5 space-y-1.5 list-none">
+                <li>Venerdì e sabato, intorno alle 20</li>
+                <li>Menù settimanale di quattro portate</li>
+                <li>1/2L vino, acqua, caffè, amaro inclusi</li>
+                <li>Animali ammessi (avvisami prima)</li>
+                <li>30–40 € a persona</li>
+              </ul>
+              <div class="mt-auto pt-5">
+                <a href="#" data-whatsapp target="_blank" rel="noopener" class="inline-flex items-center justify-center bg-forest hover:bg-sageDark text-cream px-5 py-3 rounded-full font-medium transition">Prenota un posto</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="flex flex-col bg-white text-ink rounded-2xl overflow-hidden border border-ochre/20 shadow-sm">
+            <div class="aspect-[5/3] overflow-hidden bg-cream">
+              <picture>
+                <source srcset="img/savory-cheesecake-plated-above-sauce.webp" type="image/webp">
+                <img src="img/savory-cheesecake-plated-above-sauce.jpeg" alt="savory cheesecake plated above sauce" loading="lazy" decoding="async" class="w-full h-full object-cover" style="object-position:center 25%">
+              </picture>
+            </div>
+            <div class="p-6 md:p-7 flex-1 flex flex-col">
+              <h3 class="text-2xl font-semibold">Chef a domicilio</h3>
+              <p class="mt-3 leading-relaxed">Vengo io a casa tua. Faccio la spesa, cucino, servo, lavo e rimetto a posto. Tu pensi solo agli ospiti.</p>
+              <ul class="bullet-list mt-5 space-y-1.5 list-none">
+                <li>Da 50 € a persona</li>
+                <li>Da 2 a 8 persone (10 da concordare)</li>
+                <li>Almeno una settimana di anticipo</li>
+                <li>Lunigiana e dintorni</li>
+                <li>Menù costruito insieme</li>
+              </ul>
+              <div class="mt-auto pt-5">
+                <a href="#" data-whatsapp target="_blank" rel="noopener" class="inline-flex items-center justify-center bg-forest hover:bg-sageDark text-cream px-5 py-3 rounded-full font-medium transition">Raccontami l'occasione</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="flex flex-col bg-white text-ink rounded-2xl overflow-hidden border border-ochre/20 shadow-sm">
+            <div class="aspect-[5/3] overflow-hidden bg-cream">
+              <picture>
+                <source srcset="img/bowls-pesto-purple-cream-condiments.webp" type="image/webp">
+                <img src="img/bowls-pesto-purple-cream-condiments.jpeg" alt="bowls pesto purple cream condiments" loading="lazy" decoding="async" class="w-full h-full object-cover">
+              </picture>
+            </div>
+            <div class="p-6 md:p-7 flex-1 flex flex-col">
+              <h3 class="text-2xl font-semibold">Le schiscette</h3>
+              <p class="mt-3 leading-relaxed">I miei pranzi pronti, freschi o congelati, da portare a casa. Si stabilisce un budget e creiamo i menù insieme.</p>
+              <ul class="bullet-list mt-5 space-y-1.5 list-none">
+                <li>Budget concordato</li>
+                <li>Settimanali o ogni due settimane</li>
+                <li>Freschi o congelati</li>
+                <li>Menù personalizzati</li>
+              </ul>
+              <div class="mt-auto pt-5">
+                <a href="#" data-whatsapp target="_blank" rel="noopener" class="inline-flex items-center justify-center bg-forest hover:bg-sageDark text-cream px-5 py-3 rounded-full font-medium transition">Scrivimi i tuoi gusti</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- MENUS -->
+    <section id="menus" class="relative overflow-hidden py-14 md:py-20 px-5 sm:px-7">
+      <div class="relative z-10 max-w-7xl mx-auto">
+        <div class="md:text-center">
+          <h2 class="font-hand text-5xl md:text-6xl text-ink leading-none" data-i18n="menus.title"></h2>
+          <p class="mt-3 text-xl md:text-2xl leading-relaxed" data-i18n="menus.subtitle"></p>
+        </div>
+        <div class="menus mt-10">
+          <figure><picture><source srcset="menu/poster-tre-serate-febbraio.webp" type="image/webp"><img src="menu/poster-tre-serate-febbraio.jpeg" alt="poster tre serate febbraio" loading="lazy" decoding="async"></picture></figure>
+          <figure><picture><source srcset="menu/menu-completo-febbraio.webp" type="image/webp"><img src="menu/menu-completo-febbraio.jpeg" alt="menu completo febbraio" loading="lazy" decoding="async"></picture></figure>
+          <figure><picture><source srcset="menu/menu-tutto-nel-piatto-21-02.webp" type="image/webp"><img src="menu/menu-tutto-nel-piatto-21-02.jpeg" alt="menu Tutto Nel Piatto 21 febbraio" loading="lazy" decoding="async"></picture></figure>
+          <figure><picture><source srcset="menu/menu-le-quattro-portate-28-02.webp" type="image/webp"><img src="menu/menu-le-quattro-portate-28-02.jpeg" alt="menu Le Quattro Portate 28 febbraio" loading="lazy" decoding="async"></picture></figure>
+          <figure><picture><source srcset="menu/menu-la-puceria-07-03.webp" type="image/webp"><img src="menu/menu-la-puceria-07-03.jpeg" alt="menu La Puceria 7 marzo" loading="lazy" decoding="async"></picture></figure>
+          <figure><picture><source srcset="menu/menu-le-quattro-portate-28-03.webp" type="image/webp"><img src="menu/menu-le-quattro-portate-28-03.jpeg" alt="menu Le Quattro Portate 28 marzo" loading="lazy" decoding="async"></picture></figure>
+          <figure><picture><source srcset="menu/menu-le-quattro-portate-17-18-aprile.webp" type="image/webp"><img src="menu/menu-le-quattro-portate-17-18-aprile.jpeg" alt="menu Le Quattro Portate 17 e 18 aprile" loading="lazy" decoding="async"></picture></figure>
+          <figure><picture><source srcset="menu/menu-le-quattro-portate-8-9-maggio.webp" type="image/webp"><img src="menu/menu-le-quattro-portate-8-9-maggio.jpeg" alt="menu Le Quattro Portate 8 e 9 maggio" loading="lazy" decoding="async"></picture></figure>
         </div>
       </div>
     </section>
 
     <!-- GALLERY -->
-    <section id="gallery" class="relative overflow-hidden py-20 md:py-28 px-5 sm:px-7 bg-washBeige">
+    <section id="gallery" class="relative overflow-hidden py-14 md:py-20 px-5 sm:px-7">
       <div class="relative z-10 max-w-7xl mx-auto">
         <div class="md:text-center">
-          <h2 class="font-hand text-5xl md:text-6xl text-beigeDeep leading-none" data-i18n="gallery.title"></h2>
-          <p class="mt-3 text-lg md:text-xl leading-relaxed" data-i18n="gallery.subtitle"></p>
+          <h2 class="font-hand text-5xl md:text-6xl text-ink leading-none" data-i18n="gallery.title"></h2>
+          <p class="mt-3 text-xl md:text-2xl leading-relaxed" data-i18n="gallery.subtitle"></p>
         </div>
         <div class="gallery mt-10">
           <figure><picture><source srcset="img/eggplant-parmigiana-white-marble-plate.webp" type="image/webp"><img src="img/eggplant-parmigiana-white-marble-plate.jpeg" alt="eggplant parmigiana white marble plate" loading="lazy" decoding="async"></picture></figure>
@@ -276,36 +367,49 @@
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="py-20 md:py-28 px-5 sm:px-7 bg-ink text-cream">
+    <section id="contact" class="py-14 md:py-20 px-5 sm:px-7 bg-ink text-cream">
       <div class="max-w-2xl mx-auto text-center">
         <h2 class="font-hand text-6xl md:text-7xl leading-none" data-i18n="contact.title"></h2>
-        <p class="mt-6 text-lg md:text-xl leading-relaxed" data-i18n="contact.lead"></p>
+        <p class="mt-6 text-xl md:text-2xl leading-relaxed" data-i18n="contact.lead"></p>
 
         <a href="#" data-whatsapp target="_blank" rel="noopener"
-          class="mt-8 inline-flex items-center justify-center gap-3 bg-brick hover:bg-terra px-8 py-4 rounded-full text-lg font-medium transition shadow-xl">
+          class="mt-8 inline-flex items-center justify-center gap-3 bg-forest hover:bg-sageDark text-cream px-8 py-4 rounded-full text-lg font-medium transition shadow-xl">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.768.967-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.108.547 4.087 1.504 5.81L0 24l6.335-1.652A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
           <span data-i18n="contact.whatsappLabel"></span>
         </a>
 
         <p class="mt-3 text-sm text-cream/70" data-i18n="contact.leadNote"></p>
 
-        <address class="mt-8 text-lg md:text-xl not-italic">
+        <p class="mt-8 text-xl md:text-2xl">
           <span data-i18n="contact.emailIntro"></span>
-          <a href="mailto:vale.sfra@hotmail.it" class="underline underline-offset-4 hover:opacity-80">vale.sfra@hotmail.it</a>
-        </address>
+          <span class="font-medium">vale.sfra@hotmail.it</span>
+        </p>
+
+        <a href="https://maps.app.goo.gl/qMVjAmTj5a1HMa598" target="_blank" rel="noopener"
+          class="mt-8 inline-flex items-center justify-center gap-2 text-cream/90 hover:text-cream underline underline-offset-4 decoration-cream/30 hover:decoration-cream text-base md:text-lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+          <span>SP14, 191 — 54010 Podenzana MS</span>
+        </a>
       </div>
     </section>
 
   </main>
 
   <!-- FOOTER -->
-  <footer class="py-8 px-5 sm:px-7 bg-ink text-cream/70 border-t border-cream/10">
+  <footer class="py-8 px-5 sm:px-7 bg-pageBg text-ink/70 border-t border-ink/15">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-3 md:gap-6 items-center justify-between text-sm text-center md:text-left">
       <span data-i18n="footer.tagline"></span>
-      <a href="https://laraminga-struttura.it" target="_blank" rel="noopener" class="hover:text-cream underline underline-offset-4 decoration-cream/20" data-i18n="footer.structureLink"></a>
+      <a href="https://laraminga-struttura.it" target="_blank" rel="noopener" class="hover:text-ink underline underline-offset-4 decoration-ink/20" data-i18n="footer.structureLink"></a>
       <span data-i18n="footer.rights"></span>
     </div>
   </footer>
+
+  <div id="lightbox" hidden aria-hidden="true">
+    <img alt="">
+  </div>
 
   <script src="assets/js/site.js"></script>
 </body>

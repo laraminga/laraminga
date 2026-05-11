@@ -10,10 +10,13 @@
   --butter: #fdf8f0;
   --brick: #c25539;
   --terra: #a23f24;
+  --terra-tint: rgba(58, 31, 21, .15);
   --sage: #7a8d5a;
   --sage-dark: #566840;
+  --forest: #c43726;
   --ochre: #d4a149;
-  --ink: #2a1f17;
+  --ink: #3a1f15;
+  --page-bg: #f7f0e7;
   --rose-deep: #74391f;
 
   --bullet-size: 6px;
@@ -41,9 +44,8 @@ picture > source { display: none; }
 }
 .hero-text {
   text-shadow:
-    0 0 1px   rgba(0, 0, 0, .85),
-    0 1px 4px rgba(0, 0, 0, .7),
-    0 3px 18px rgba(0, 0, 0, .55);
+    0 1px 2px rgba(0, 0, 0, .35),
+    0 2px 10px rgba(0, 0, 0, .25);
 }
 .hero-text a { text-shadow: none; }
 
@@ -54,9 +56,9 @@ picture > source { display: none; }
    ("scrolled") once the user scrolls past 60px. */
 
 #header {
-  background: var(--butter);
+  background: var(--page-bg);
   color: var(--ink);
-  border-bottom: 1px solid rgba(212, 161, 73, .18);
+  border-bottom: 1px solid rgba(58, 31, 21, .15);
   box-shadow: 0 8px 24px rgba(42, 31, 23, .08);
   transition:
     background-color .35s ease,
@@ -64,7 +66,7 @@ picture > source { display: none; }
     border-color .35s ease,
     box-shadow .35s ease;
 }
-#header .logo { color: var(--brick); transition: color .35s ease; }
+#header .logo { color: var(--ink); transition: color .35s ease; }
 
 @media (min-width: 768px) {
   #header {
@@ -76,18 +78,18 @@ picture > source { display: none; }
   #header .logo { color: var(--cream); }
 
   #header.scrolled {
-    background-color: rgba(253, 248, 240, .94);
+    background-color: rgba(247, 240, 231, .94);
     -webkit-backdrop-filter: saturate(180%) blur(10px);
     backdrop-filter: saturate(180%) blur(10px);
     color: var(--ink);
-    border-bottom-color: rgba(212, 161, 73, .18);
+    border-bottom-color: rgba(58, 31, 21, .15);
   }
-  #header.scrolled .logo { color: var(--brick); }
+  #header.scrolled .logo { color: var(--ink); }
 }
 
 #nav-menu {
-  background: var(--butter);
-  border-top: 1px solid rgba(212, 161, 73, .18);
+  background: var(--page-bg);
+  border-top: 1px solid rgba(58, 31, 21, .15);
   box-shadow: 0 24px 36px -12px rgba(42, 31, 23, .22);
   border-bottom-left-radius: 1.25rem;
   border-bottom-right-radius: 1.25rem;
@@ -129,9 +131,48 @@ picture > source { display: none; }
   width: var(--bullet-size);
   height: var(--bullet-size);
   border-radius: 50%;
-  background: var(--brick);
+  background: var(--forest);
   vertical-align: .18em;
   margin-right: var(--bullet-gap);
+}
+
+
+/* ─── MENUS ────────────────────────────────────────────────────────────
+   Poster-style menu thumbnails. Tall aspect, no crop — show the full
+   page. 2 cols on phones, 3 on tablets, 4 on wide screens. */
+
+.menus {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+.menus > figure {
+  margin: 0;
+  border-radius: .75rem;
+  overflow: hidden;
+  background: var(--cream);
+  border: 1px solid rgba(42, 31, 23, .08);
+  box-shadow: 0 4px 12px rgba(42, 31, 23, .06);
+  aspect-ratio: 5 / 7;
+}
+.menus img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .6s ease;
+}
+.menus > figure:hover img { transform: scale(1.02); }
+
+@media (min-width: 700px) {
+  .menus { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+}
+@media (min-width: 1024px) {
+  .menus { grid-template-columns: repeat(4, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menus > figure:hover img { transform: none; }
 }
 
 
@@ -156,6 +197,7 @@ picture > source { display: none; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: contrast(1.3) saturate(1.2);
   transition: transform .6s ease;
 }
 .gallery > figure:hover img { transform: scale(1.03); }
@@ -178,9 +220,47 @@ picture > source { display: none; }
 }
 
 
+/* ─── LIGHTBOX ─────────────────────────────────────────────────────────
+   Click any menu or gallery image → fullscreen overlay.
+   Click anywhere (or press Esc) to close. */
+
+.menus img,
+.gallery img { cursor: pointer; }
+
+#lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  background: rgba(10, 8, 6, .94);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+  animation: lightboxIn .18s ease-out;
+}
+#lightbox[hidden] { display: none; }
+#lightbox img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: .5rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .6);
+}
+@keyframes lightboxIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+
 /* ─── REDUCED MOTION ───────────────────────────────────────────────── */
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .gallery > figure:hover img { transform: none; }
+  #lightbox { animation: none; }
 }

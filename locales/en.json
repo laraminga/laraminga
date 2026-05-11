@@ -8,6 +8,7 @@
     "cuisine": "The food",
     "services": "What I cook",
     "garden": "The garden",
+    "menus": "Menus",
     "gallery": "Gallery",
     "contact": "Get in touch"
   },
@@ -59,7 +60,7 @@
         "cta": "Tell me about the occasion"
       },
       {
-        "title": "Schisete · ready meals",
+        "title": "Schiscette · ready meals",
         "body": "Home-cooked meals to take away, fresh or frozen. We agree on a budget and put the menu together.",
         "details": [
           "A budget you set",
@@ -75,6 +76,10 @@
     "title": "The garden",
     "p1": "The garden at home, which I share with the neighbours, is ready by now to take centre stage.",
     "p2": "The hard work pays off in the intense, honest flavour of the vegetables I try to bring out in every dish. Anything that doesn't come from here comes, as much as possible, from local producers and farmers."
+  },
+  "menus": {
+    "title": "The menus",
+    "subtitle": "Browse the menus from past evenings."
   },
   "gallery": {
     "title": "A taste",

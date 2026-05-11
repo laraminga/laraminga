@@ -32,13 +32,6 @@ const SITE = {
   priceRange: '€€',
 };
 
-// Service-card image config — keep in sync with assets/js/site.js
-const SERVICE_IMG = [
-  { src: 'terrace-table-blue-plates-mountains' },
-  { src: 'savory-cheesecake-plated-above-sauce', pos: 'center 25%' },
-  { src: 'bowls-pesto-purple-cream-condiments' },
-];
-
 // ─── paths + helpers ─────────────────────────────────────────────────────
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.join(ROOT, 'dist');
@@ -58,8 +51,6 @@ const escHtml = (s) =>
   String(s ?? '').replace(/[&<>]/g, (c) => ({ '&':'&amp;','<':'&lt;','>':'&gt;' }[c]));
 
 const get = (o, p) => p.split('.').reduce((x, k) => (x == null ? x : x[k]), o);
-
-const altFromName = (n) => n.replace(/[-_]/g, ' ');
 
 async function copyDir(src, dst) {
   await fs.mkdir(dst, { recursive: true });
@@ -110,8 +101,9 @@ async function clean() {
 }
 
 async function copyAssets() {
-  log('copy img/, fonts/, .nojekyll, CNAME');
+  log('copy img/, menu/, fonts/, .nojekyll, CNAME');
   await copyDir(p('img'),   pd('img'));
+  await copyDir(p('menu'),  pd('menu'));
   await copyDir(p('fonts'), pd('fonts'));
   for (const f of ['.nojekyll', 'CNAME']) {
     try { await fs.copyFile(p(f), pd(f)); } catch {}
@@ -139,7 +131,8 @@ async function compileTailwind() {
   theme: { extend: {
     colors: {
       cream: '#fbf5e7', butter: '#fdf8f0', brick: '#c25539', terra: '#a23f24',
-      sage: '#7a8d5a', sageDark: '#566840', ochre: '#d4a149', ink: '#2a1f17',
+      sage: '#7a8d5a', sageDark: '#a23425', forest: '#c43726', ochre: '#d4a149', ink: '#3a1f15',
+      pageBg: '#f7f0e7',
       washSky: '#e6eff1', washHoney: '#faf2dc', washSage: '#eef2e1',
       washRose: '#f9ebdf', washBeige: '#f3ecd9',
       skyDeep: '#2f5763', honeyDeep: '#6b591e', sageDeep: '#4f5a2a',
@@ -147,7 +140,7 @@ async function compileTailwind() {
     },
     fontFamily: {
       hand: ['"Dancing Script"', 'cursive'],
-      serif: ['Lora', 'Georgia', 'serif'],
+      serif: ['Quattrocento', 'Georgia', 'serif'],
     },
   }},
 };
@@ -182,9 +175,6 @@ async function buildHtml({ css, js, locales }) {
   const it = locales[SITE.defaultLocale];
   let html = await fs.readFile(p('index.html'), 'utf8');
 
-  // mark the document so JS knows it can skip the initial render pass
-  html = html.replace('<html lang="it">', '<html lang="it" data-prerender="it">');
-
   // strip dev-only refs (the inline build replaces them)
   html = html
     .replace(/\s*<link[^>]+href="fonts\/fonts\.css"[^>]*>/g, '')
@@ -208,13 +198,13 @@ async function buildHtml({ css, js, locales }) {
   );
 
   // expand placeholders
-  html = html.replace('<!-- @services -->', renderServices(it, waHref));
-  html = html.replace('<!-- @jsonld -->',   renderJsonLd(it));
+  html = html.replace('<!-- @jsonld -->', renderJsonLd(it));
 
   // preload the woff2s (now we know they're inlined-referenced via fonts/…)
   const preloads = [
     `<link rel="preload" as="font" type="font/woff2" href="fonts/dancing-script-latin.woff2" crossorigin>`,
-    `<link rel="preload" as="font" type="font/woff2" href="fonts/lora-latin.woff2" crossorigin>`,
+    `<link rel="preload" as="font" type="font/woff2" href="fonts/quattrocento-latin-400.woff2" crossorigin>`,
+    `<link rel="preload" as="font" type="font/woff2" href="fonts/quattrocento-latin-700.woff2" crossorigin>`,
   ].join('');
 
   // inline the bundled css + js
@@ -275,35 +265,6 @@ function preRender(html, locale) {
   );
 
   return html;
-}
-
-function renderServices(locale, waHref) {
-  const items = locale.services?.items || [];
-  return items
-    .map((s, i) => {
-      const cfg = SERVICE_IMG[i] || SERVICE_IMG[0];
-      const pos = cfg.pos ? ` style="object-position:${cfg.pos}"` : '';
-      const details = (s.details || []).map((d) => `<li>${escHtml(d)}</li>`).join('');
-      return [
-        `<article class="flex flex-col bg-white rounded-2xl overflow-hidden border border-ochre/20 shadow-sm">`,
-          `<div class="aspect-[5/3] overflow-hidden bg-cream">`,
-            `<picture>`,
-              `<source srcset="img/${cfg.src}.webp" type="image/webp">`,
-              `<img src="img/${cfg.src}.jpeg" alt="${escAttr(altFromName(cfg.src))}" loading="lazy" decoding="async" class="w-full h-full object-cover"${pos}>`,
-            `</picture>`,
-          `</div>`,
-          `<div class="p-6 md:p-7 flex-1 flex flex-col">`,
-            `<h3 class="text-2xl font-semibold">${escHtml(s.title)}</h3>`,
-            `<p class="mt-3 leading-relaxed">${escHtml(s.body)}</p>`,
-            `<ul class="bullet-list mt-5 space-y-1.5 list-none">${details}</ul>`,
-            `<div class="mt-auto pt-5">`,
-              `<a href="${escAttr(waHref)}" target="_blank" rel="noopener" class="inline-flex items-center justify-center bg-brick hover:bg-terra text-white px-5 py-3 rounded-full font-medium transition">${escHtml(s.cta)}</a>`,
-            `</div>`,
-          `</div>`,
-        `</article>`,
-      ].join('');
-    })
-    .join('');
 }
 
 function renderJsonLd(it) {

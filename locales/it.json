@@ -8,6 +8,7 @@
     "cuisine": "La cucina",
     "services": "I servizi",
     "garden": "L'orto",
+    "menus": "I menù",
     "gallery": "Galleria",
     "contact": "Scrivimi"
   },
@@ -59,7 +60,7 @@
         "cta": "Raccontami l'occasione"
       },
       {
-        "title": "Le schisete",
+        "title": "Le schiscette",
         "body": "I miei pranzi pronti, freschi o congelati, da portare a casa. Si stabilisce un budget e creiamo i menù insieme.",
         "details": [
           "Budget concordato",
@@ -76,6 +77,10 @@
     "p1": "L'orto di casa, che condivido con i vicini, è ormai pronto per essere protagonista indiscusso.",
     "p2": "La fatica del lavoro è ripagata dal gusto intenso e vero delle verdure che cerco di mettere in risalto in ogni portata. Quello che non viene da qui arriva il più possibile da produttori locali e contadini."
   },
+  "menus": {
+    "title": "I menù",
+    "subtitle": "Sfoglia i menù delle serate passate."
+  },
   "gallery": {
     "title": "Un assaggio",
     "subtitle": "Tra piatti, orto e tavole apparecchiate."
@@ -84,7 +89,7 @@
     "title": "Scrivimi",
     "lead": "Sentiamoci su WhatsApp:",
     "leadNote": "Solo messaggi, niente chiamate, grazie.",
-    "whatsappLabel": "+39 347 14 57 329",
+    "whatsappLabel": "+39 347 145 7329",
     "emailIntro": "Anche un'email va benissimo:"
   },
   "footer": {

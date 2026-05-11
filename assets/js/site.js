@@ -1,36 +1,23 @@
 /* ──────────────────────────────────────────────────────────────────────
    La Raminga — runtime
-   • Locale switch (it / en) — content is pre-rendered for the default
-     locale; this only re-renders on user toggle.
+   • Locale switch (it / en) — flips data-i18n text/attribute strings.
+     Service cards live as static HTML in index.html (IT only).
    • Header scroll state.
    • Mobile burger menu (open/close + close-on-scroll).
-   • Service-card template (kept in sync with build.mjs).
    ────────────────────────────────────────────────────────────────────── */
 
 (() => {
   const PHONE = '393471457329';
-  const EMAIL = 'vale.sfra@hotmail.it';
   const STORE = 'la-raminga-lang';
 
   // Locale data is inlined by the build script as window.__LOCALES__.
   // In dev (no build), fall back to fetch().
   const LOCALES = (typeof window !== 'undefined' && window.__LOCALES__) || null;
 
-  // Service-card image config — keep in sync with build.mjs
-  const SERVICE_IMG = [
-    { src: 'terrace-table-blue-plates-mountains' },
-    { src: 'savory-cheesecake-plated-above-sauce', pos: 'center 25%' },
-    { src: 'bowls-pesto-purple-cream-condiments' },
-  ];
-
   let active = null;
 
   // ─── helpers ──────────────────────────────────────────────────────────
   const get = (o, p) => p.split('.').reduce((x, k) => (x == null ? x : x[k]), o);
-  const esc = (s) =>
-    String(s ?? '').replace(/[&<>"']/g, (c) =>
-      ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c])
-    );
   const wa = (msg) =>
     `https://wa.me/${PHONE}?text=${encodeURIComponent(msg ?? '')}`;
 
@@ -39,33 +26,6 @@
     const res = await fetch(`locales/${loc}.json`);
     if (!res.ok) throw new Error('locale fetch failed');
     return res.json();
-  }
-
-  // ─── service-card template ────────────────────────────────────────────
-  function serviceCard(s, i, msg) {
-    const cfg = SERVICE_IMG[i] || SERVICE_IMG[0];
-    const pos = cfg.pos ? ` style="object-position:${cfg.pos}"` : '';
-    const list = (s.details || []).map((d) => `<li>${esc(d)}</li>`).join('');
-    return `
-      <article class="flex flex-col bg-white rounded-2xl overflow-hidden border border-ochre/20 shadow-sm">
-        <div class="aspect-[5/3] overflow-hidden bg-cream">
-          <picture>
-            <source srcset="img/${cfg.src}.webp" type="image/webp">
-            <img src="img/${cfg.src}.jpeg" alt="" loading="lazy" decoding="async" class="w-full h-full object-cover"${pos}>
-          </picture>
-        </div>
-        <div class="p-6 md:p-7 flex-1 flex flex-col">
-          <h3 class="text-2xl font-semibold">${esc(s.title)}</h3>
-          <p class="mt-3 leading-relaxed">${esc(s.body)}</p>
-          <ul class="bullet-list mt-5 space-y-1.5 list-none">${list}</ul>
-          <div class="mt-auto pt-5">
-            <a href="${wa(msg)}" target="_blank" rel="noopener"
-              class="inline-flex items-center justify-center bg-brick hover:bg-terra text-white px-5 py-3 rounded-full font-medium transition">
-              ${esc(s.cta)}
-            </a>
-          </div>
-        </div>
-      </article>`;
   }
 
   // ─── apply a locale to the DOM ────────────────────────────────────────
@@ -79,14 +39,6 @@
       if (a) el.setAttribute(a, v);
       else el.textContent = v;
     });
-
-    const list = document.getElementById('services-list');
-    if (list && Array.isArray(data?.services?.items)) {
-      const msg = data.whatsappMessage ?? '';
-      list.innerHTML = data.services.items
-        .map((s, i) => serviceCard(s, i, msg))
-        .join('');
-    }
 
     const href = wa(data?.whatsappMessage);
     document.querySelectorAll('[data-whatsapp]').forEach((a) => (a.href = href));
@@ -141,6 +93,36 @@
     addEventListener('scroll', () => isOpen() && close(), { passive: true });
   }
 
+  // ─── lightbox ─────────────────────────────────────────────────────────
+  function bindLightbox() {
+    const box = document.getElementById('lightbox');
+    if (!box) return;
+    const big = box.querySelector('img');
+
+    const open = (src, alt) => {
+      big.src = src;
+      big.alt = alt || '';
+      box.hidden = false;
+      box.setAttribute('aria-hidden', 'false');
+      document.documentElement.style.overflow = 'hidden';
+    };
+    const close = () => {
+      box.hidden = true;
+      box.setAttribute('aria-hidden', 'true');
+      big.removeAttribute('src');
+      document.documentElement.style.overflow = '';
+    };
+
+    document.querySelectorAll('.menus img, .gallery img').forEach((img) => {
+      img.addEventListener('click', () => open(img.currentSrc || img.src, img.alt));
+    });
+
+    box.addEventListener('click', close);
+    addEventListener('keydown', (e) => {
+      if (!box.hidden && e.key === 'Escape') close();
+    });
+  }
+
   function bindLocale() {
     document.querySelectorAll('[data-locale-btn]').forEach((b) =>
       b.addEventListener('click', () => setLocale(b.dataset.localeBtn))
@@ -152,6 +134,7 @@
     bindHeader();
     bindMobileNav();
     bindLocale();
+    bindLightbox();
 
     const initial = detect();
     const pre = document.documentElement.dataset.prerender;
