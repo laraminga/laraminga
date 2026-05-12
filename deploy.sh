@@ -83,8 +83,4 @@ git -c user.name="$GIT_NAME" -c user.email="$GIT_MAIL" \
 
 echo "▶ pushing $REMOTE/$BRANCH"
 git push -q "$REMOTE" "$BRANCH"
-echo "✓ deployed $STAMP"
-
-
-# TODO 
-# On brave, dark bg on white text fixme 
+echo "✓ deployed $STAMP" 

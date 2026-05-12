@@ -1,24 +1,9 @@
-/* ──────────────────────────────────────────────────────────────────────
-   La Raminga — site styles
-   Tailwind handles the bulk; this file only owns the bits that don't
-   compose well as utility classes (variables, vignette, hover effects,
-   header transitions).
-   ────────────────────────────────────────────────────────────────────── */
-
 :root {
   color-scheme: light;
   --cream: #fbf5e7;
-  --butter: #fdf8f0;
-  --brick: #c25539;
-  --terra: #a23f24;
-  --terra-tint: rgba(58, 31, 21, .15);
-  --sage: #7a8d5a;
-  --sage-dark: #566840;
   --forest: #c43726;
-  --ochre: #d4a149;
   --ink: #3a1f15;
   --page-bg: #f7f0e7;
-  --rose-deep: #74391f;
 
   --bullet-size: 6px;
   --bullet-gap: .6em;
@@ -30,12 +15,11 @@ body { -webkit-font-smoothing: antialiased; }
 section[id] { scroll-margin-top: 4.5rem; }
 #prenota { scroll-margin-top: 11rem; }
 
-/* picture wrapper is invisible to layout — children use the parent's box */
 picture { display: contents; }
 picture > source { display: none; }
 
 
-/* ─── HERO ─────────────────────────────────────────────────────────── */
+/* Hero */
 
 .hero-vignette {
   background: radial-gradient(
@@ -52,10 +36,8 @@ picture > source { display: none; }
 .hero-text a { text-shadow: none; }
 
 
-/* ─── HEADER ───────────────────────────────────────────────────────────
-   Mobile: in normal flow, butter background, ink text, soft drop shadow.
-   Desktop: fixed at top, transparent over the hero photo, becomes solid
-   ("scrolled") once the user scrolls past 60px. */
+/* Header — mobile: in flow, solid. Desktop: fixed, transparent over hero,
+   gains a blurred background once scrolled past 60px. */
 
 #header {
   background: var(--page-bg);
@@ -102,7 +84,7 @@ picture > source { display: none; }
 #nav-toggle[aria-expanded="true"] .icon-close  { display: block; }
 
 
-/* ─── LOCALE FLAG TOGGLE ───────────────────────────────────────────── */
+/* Locale flag toggle */
 
 .locale-btn {
   display: inline-flex;
@@ -114,13 +96,13 @@ picture > source { display: none; }
   border: 0;
   cursor: pointer;
 }
-.locale-btn:hover         { opacity: .7; }
-.locale-btn.is-active     { opacity: 1; }
-.locale-btn svg           { display: block; }
+.locale-btn:hover     { opacity: .7; }
+.locale-btn.is-active { opacity: 1; }
+.locale-btn svg       { display: block; }
 
 
-/* ─── SERVICE-CARD BULLETS ─────────────────────────────────────────────
-   Hanging-indent dots so wrapped lines align with the first text line. */
+/* Service-card bullets — hanging indent so wrapped lines align with the
+   first text line, not the bullet. */
 
 .bullet-list li {
   padding-left: var(--bullet-indent);
@@ -139,9 +121,7 @@ picture > source { display: none; }
 }
 
 
-/* ─── MENUS ────────────────────────────────────────────────────────────
-   Poster-style menu thumbnails. Tall aspect, no crop — show the full
-   page. 2 cols on phones, 3 on tablets, 4 on wide screens. */
+/* Menus — poster thumbnails, full page visible (no crop). */
 
 .menus {
   display: grid;
@@ -173,14 +153,8 @@ picture > source { display: none; }
   .menus { grid-template-columns: repeat(4, 1fr); }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .menus > figure:hover img { transform: none; }
-}
 
-
-/* ─── GALLERY ──────────────────────────────────────────────────────────
-   Uniform 3:4 grid, max 3 columns. The single orphan in the last row is
-   centered (column 2 on desktop, half-width on mobile). */
+/* Gallery — 3:4 grid. Lone item in the final row is centered. */
 
 .gallery {
   display: grid;
@@ -222,9 +196,7 @@ picture > source { display: none; }
 }
 
 
-/* ─── LIGHTBOX ─────────────────────────────────────────────────────────
-   Click any menu or gallery image → fullscreen overlay.
-   Click anywhere (or press Esc) to close. */
+/* Lightbox */
 
 .menus img,
 .gallery img { cursor: pointer; }
@@ -268,7 +240,6 @@ picture > source { display: none; }
   user-select: none;
   -webkit-user-drag: none;
 }
-#lightbox img.swiping { transition: none; }
 
 .lb-close,
 .lb-prev,
@@ -332,10 +303,9 @@ picture > source { display: none; }
 }
 
 
-/* ─── REDUCED MOTION ───────────────────────────────────────────────── */
-
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .menus  > figure:hover img,
   .gallery > figure:hover img { transform: none; }
   #lightbox { animation: none; }
 }

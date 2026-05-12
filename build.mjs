@@ -130,13 +130,8 @@ async function compileTailwind() {
   ],
   theme: { extend: {
     colors: {
-      cream: '#fbf5e7', butter: '#fdf8f0', brick: '#c25539', terra: '#a23f24',
-      sage: '#7a8d5a', sageDark: '#a23425', forest: '#c43726', ochre: '#d4a149', ink: '#3a1f15',
-      pageBg: '#f7f0e7',
-      washSky: '#e6eff1', washHoney: '#faf2dc', washSage: '#eef2e1',
-      washRose: '#f9ebdf', washBeige: '#f3ecd9',
-      skyDeep: '#2f5763', honeyDeep: '#6b591e', sageDeep: '#4f5a2a',
-      roseDeep: '#74391f', beigeDeep: '#5d4a1c',
+      cream: '#fbf5e7', butter: '#fdf8f0', sageDark: '#a23425',
+      forest: '#c43726', ochre: '#d4a149', ink: '#3a1f15', pageBg: '#f7f0e7',
     },
     fontFamily: {
       hand: ['"Dancing Script"', 'cursive'],

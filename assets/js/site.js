@@ -1,24 +1,14 @@
-/* ──────────────────────────────────────────────────────────────────────
-   La Raminga — runtime
-   • Locale switch (it / en) — flips data-i18n text/attribute strings.
-     Service cards live as static HTML in index.html (IT only).
-   • Header scroll state.
-   • Mobile burger menu (open/close + close-on-scroll).
-   ────────────────────────────────────────────────────────────────────── */
-
 (() => {
   const PHONE = '393471457329';
   const STORE = 'la-raminga-lang';
 
-  // Locale data is inlined by the build script as window.__LOCALES__.
-  // In dev (no build), fall back to fetch().
+  // Build inlines locale data as window.__LOCALES__; in dev we fetch instead.
   const LOCALES = (typeof window !== 'undefined' && window.__LOCALES__) || null;
 
   let active = null;
 
-  // ─── helpers ──────────────────────────────────────────────────────────
-  const get = (o, p) => p.split('.').reduce((x, k) => (x == null ? x : x[k]), o);
-  const wa = (msg) =>
+  const get = (obj, path) => path.split('.').reduce((node, key) => (node == null ? node : node[key]), obj);
+  const whatsappLink = (msg) =>
     `https://wa.me/${PHONE}?text=${encodeURIComponent(msg ?? '')}`;
 
   async function fetchLocale(loc) {
@@ -28,19 +18,18 @@
     return res.json();
   }
 
-  // ─── apply a locale to the DOM ────────────────────────────────────────
   function apply(data) {
     document.documentElement.lang = active;
 
     document.querySelectorAll('[data-i18n]').forEach((el) => {
-      const v = get(data, el.dataset.i18n);
-      if (typeof v !== 'string') return;
-      const a = el.dataset.i18nAttr;
-      if (a) el.setAttribute(a, v);
-      else el.textContent = v;
+      const value = get(data, el.dataset.i18n);
+      if (typeof value !== 'string') return;
+      const attr = el.dataset.i18nAttr;
+      if (attr) el.setAttribute(attr, value);
+      else el.textContent = value;
     });
 
-    const href = wa(data?.whatsappMessage);
+    const href = whatsappLink(data?.whatsappMessage);
     document.querySelectorAll('[data-whatsapp]').forEach((a) => (a.href = href));
   }
 
@@ -65,48 +54,43 @@
   }
 
   function detect() {
-    let s; try { s = localStorage.getItem(STORE); } catch {}
-    if (s === 'it' || s === 'en') return s;
+    let stored; try { stored = localStorage.getItem(STORE); } catch {}
+    if (stored === 'it' || stored === 'en') return stored;
     const lang = (navigator.language || 'it').slice(0, 2).toLowerCase();
     return lang === 'en' ? 'en' : 'it';
   }
 
-  // ─── header scroll state ──────────────────────────────────────────────
   function bindHeader() {
-    const h = document.getElementById('header');
-    if (!h) return;
-    const sync = () => h.classList.toggle('scrolled', scrollY > 60);
+    const header = document.getElementById('header');
+    if (!header) return;
+    const sync = () => header.classList.toggle('scrolled', scrollY > 60);
     addEventListener('scroll', sync, { passive: true });
     sync();
   }
 
-  // ─── mobile burger menu ───────────────────────────────────────────────
   function bindMobileNav() {
-    const t = document.getElementById('nav-toggle');
-    const m = document.getElementById('nav-menu');
-    if (!t || !m) return;
-    const isOpen = () => !m.classList.contains('hidden');
-    const open  = () => { m.classList.remove('hidden'); t.setAttribute('aria-expanded', 'true');  };
-    const close = () => { m.classList.add('hidden');    t.setAttribute('aria-expanded', 'false'); };
-    t.addEventListener('click', () => (isOpen() ? close() : open()));
-    m.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
+    const toggle = document.getElementById('nav-toggle');
+    const menu   = document.getElementById('nav-menu');
+    if (!toggle || !menu) return;
+    const isOpen = () => !menu.classList.contains('hidden');
+    const open   = () => { menu.classList.remove('hidden'); toggle.setAttribute('aria-expanded', 'true');  };
+    const close  = () => { menu.classList.add('hidden');    toggle.setAttribute('aria-expanded', 'false'); };
+    toggle.addEventListener('click', () => (isOpen() ? close() : open()));
+    menu.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
     addEventListener('scroll', () => isOpen() && close(), { passive: true });
   }
 
-  // ─── lightbox ─────────────────────────────────────────────────────────
-  // Click an image in .menus or .gallery → fullscreen slideshow scoped to
-  // that group. Arrows + dots + keyboard + swipe.
   function bindLightbox() {
     const box = document.getElementById('lightbox');
     if (!box) return;
-    const big   = box.querySelector('img');
-    const stage = box.querySelector('.lb-stage');
-    const counter = box.querySelector('.lb-counter');
+    const big      = box.querySelector('img');
+    const stage    = box.querySelector('.lb-stage');
+    const counter  = box.querySelector('.lb-counter');
     const btnPrev  = box.querySelector('.lb-prev');
     const btnNext  = box.querySelector('.lb-next');
     const btnClose = box.querySelector('.lb-close');
 
-    let group = [];   // [{src, alt}, …]
+    let group = [];
     let idx   = 0;
 
     const render = () => {
@@ -124,7 +108,7 @@
     const open = (imgs, startIdx) => {
       group = [...imgs].map((im) => ({
         src: im.currentSrc || im.src,
-        alt: im.alt
+        alt: im.alt,
       }));
       idx = startIdx;
       render();
@@ -148,7 +132,6 @@
       });
     });
 
-    // Clicks inside the lightbox: backdrop closes; everything else doesn't.
     box.addEventListener('click', (e) => {
       if (e.target === box || e.target === stage) close();
     });
@@ -158,30 +141,28 @@
 
     addEventListener('keydown', (e) => {
       if (box.hidden) return;
-      if (e.key === 'Escape') { close(); }
+      if (e.key === 'Escape') close();
       else if (e.key === 'ArrowRight') { e.preventDefault(); next(); }
       else if (e.key === 'ArrowLeft')  { e.preventDefault(); prev(); }
     });
 
-    // Mobile: tap on the image advances. Detect via pointer media query
-    // so desktop mouse clicks on the image don't accidentally navigate.
+    // Mobile only: tap on the image advances. Desktop has dedicated arrows.
     const isCoarse = matchMedia('(hover: none) and (pointer: coarse)');
     big.addEventListener('click', (e) => {
       e.stopPropagation();
       if (isCoarse.matches && group.length > 1) next();
     });
 
-    // Touch swipe (horizontal). Threshold: 50px or 15% of viewport width.
-    let tx = 0, ty = 0, tracking = false;
+    let startX = 0, startY = 0, tracking = false;
     box.addEventListener('touchstart', (e) => {
       if (e.touches.length !== 1) return;
-      tx = e.touches[0].clientX; ty = e.touches[0].clientY; tracking = true;
+      startX = e.touches[0].clientX; startY = e.touches[0].clientY; tracking = true;
     }, { passive: true });
     box.addEventListener('touchend', (e) => {
       if (!tracking) return;
       tracking = false;
       const t = e.changedTouches[0];
-      const dx = t.clientX - tx, dy = t.clientY - ty;
+      const dx = t.clientX - startX, dy = t.clientY - startY;
       const threshold = Math.max(50, innerWidth * 0.15);
       if (Math.abs(dx) > threshold && Math.abs(dx) > Math.abs(dy) * 1.5) {
         if (dx < 0) next(); else prev();
@@ -189,15 +170,12 @@
     }, { passive: true });
   }
 
-  // ─── #prenota → scroll to contact section ─────────────────────────────
-  // The hash points at the lead <p>, but visually we want the "Scrivimi"
-  // title in view, so retarget the scroll to the contact section.
+  // The hash points at the lead <p>, but we want the section title in view.
   function bindPrenotaScroll() {
     const contact = document.getElementById('contact');
     if (!contact) return;
     const go = () => {
       if (location.hash !== '#prenota') return;
-      // Defer past the browser's own hash-jump.
       requestAnimationFrame(() => contact.scrollIntoView({ behavior: 'smooth', block: 'start' }));
     };
     addEventListener('hashchange', go);
@@ -213,7 +191,6 @@
     );
   }
 
-  // ─── boot ────────────────────────────────────────────────────────────
   function init() {
     bindHeader();
     bindMobileNav();
@@ -225,8 +202,7 @@
     const pre = document.documentElement.dataset.prerender;
 
     if (pre && pre === initial && LOCALES) {
-      // Page is already rendered in the wanted locale: just sync state
-      // (no DOM thrash, no redundant text replacement).
+      // Page is already pre-rendered in this locale; skip the DOM thrash.
       active = initial;
       syncFlags(initial);
     } else {
