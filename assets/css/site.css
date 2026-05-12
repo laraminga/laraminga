@@ -28,6 +28,7 @@
 html { scroll-behavior: smooth; }
 body { -webkit-font-smoothing: antialiased; }
 section[id] { scroll-margin-top: 4.5rem; }
+#prenota { scroll-margin-top: 11rem; }
 
 /* picture wrapper is invisible to layout — children use the parent's box */
 picture { display: contents; }
@@ -235,14 +236,26 @@ picture > source { display: none; }
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
+  padding: 2rem 1.5rem 2.75rem;
   background: rgba(10, 8, 6, .94);
   -webkit-backdrop-filter: blur(4px);
   backdrop-filter: blur(4px);
   cursor: pointer;
   animation: lightboxIn .18s ease-out;
+  touch-action: pan-y;
+  overflow: hidden;
 }
 #lightbox[hidden] { display: none; }
+.lb-stage {
+  flex: 1 1 auto;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
 #lightbox img {
   max-width: 100%;
   max-height: 100%;
@@ -251,7 +264,68 @@ picture > source { display: none; }
   object-fit: contain;
   border-radius: .5rem;
   box-shadow: 0 20px 60px rgba(0, 0, 0, .6);
+  cursor: default;
+  user-select: none;
+  -webkit-user-drag: none;
 }
+#lightbox img.swiping { transition: none; }
+
+.lb-close,
+.lb-prev,
+.lb-next {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, .08);
+  color: #fff;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  transition: background .15s ease, transform .15s ease;
+  z-index: 2;
+  padding: 0;
+  width: 3rem;
+  height: 3rem;
+}
+.lb-close svg,
+.lb-prev svg,
+.lb-next svg {
+  width: 55%;
+  height: 55%;
+  display: block;
+}
+.lb-close:hover,
+.lb-prev:hover,
+.lb-next:hover { background: rgba(255, 255, 255, .18); }
+.lb-close { top: 1rem; right: 1rem; }
+.lb-prev, .lb-next { top: 50%; transform: translateY(-50%); }
+.lb-prev { left: .75rem; }
+.lb-next { right: .75rem; }
+.lb-prev:hover, .lb-next:hover { transform: translateY(-50%) scale(1.05); }
+
+.lb-counter {
+  position: absolute;
+  bottom: .9rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, .85);
+  font-size: .9rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .02em;
+  user-select: none;
+  z-index: 2;
+}
+
+@media (max-width: 600px) {
+  .lb-prev, .lb-next { display: none; }
+  .lb-close { width: 2.5rem; height: 2.5rem; }
+  #lightbox { padding: 1.75rem 1rem 2.25rem; }
+  #lightbox img { cursor: pointer; }
+}
+
 @keyframes lightboxIn {
   from { opacity: 0; }
   to   { opacity: 1; }

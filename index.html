@@ -371,7 +371,7 @@
     <section id="contact" class="py-14 md:py-20 px-5 sm:px-7 bg-ink text-cream">
       <div class="max-w-2xl mx-auto text-center">
         <h2 class="font-hand text-6xl md:text-7xl leading-none" data-i18n="contact.title"></h2>
-        <p class="mt-6 text-xl md:text-2xl leading-relaxed" data-i18n="contact.lead"></p>
+        <p id="prenota" class="mt-6 text-xl md:text-2xl leading-relaxed" data-i18n="contact.lead"></p>
 
         <a href="#" data-whatsapp target="_blank" rel="noopener"
           class="mt-8 inline-flex items-center justify-center gap-3 bg-forest hover:bg-sageDark text-cream px-8 py-4 rounded-full text-lg font-medium transition shadow-xl">
@@ -383,7 +383,7 @@
 
         <p class="mt-8 text-xl md:text-2xl">
           <span data-i18n="contact.emailIntro"></span>
-          <span class="font-medium">vale.sfra@hotmail.it</span>
+          <a href="mailto:vale.sfra@hotmail.it" class="font-medium text-cream/90 hover:text-cream underline underline-offset-4 decoration-cream/30 hover:decoration-cream">vale.sfra@hotmail.it</a>
         </p>
 
         <a href="https://maps.app.goo.gl/qMVjAmTj5a1HMa598" target="_blank" rel="noopener"
@@ -408,8 +408,18 @@
     </div>
   </footer>
 
-  <div id="lightbox" hidden aria-hidden="true">
-    <img alt="">
+  <div id="lightbox" hidden aria-hidden="true" role="dialog" aria-modal="true">
+    <button class="lb-close" type="button" aria-label="Close">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" fill="none"/></svg>
+    </button>
+    <button class="lb-prev" type="button" aria-label="Previous">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 6L8.5 12l6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+    </button>
+    <button class="lb-next" type="button" aria-label="Next">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.5 6l6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+    </button>
+    <div class="lb-stage"><img alt=""></div>
+    <div class="lb-counter" aria-live="polite"></div>
   </div>
 
   <script src="assets/js/site.js"></script>

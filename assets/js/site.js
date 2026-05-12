@@ -94,14 +94,40 @@
   }
 
   // ─── lightbox ─────────────────────────────────────────────────────────
+  // Click an image in .menus or .gallery → fullscreen slideshow scoped to
+  // that group. Arrows + dots + keyboard + swipe.
   function bindLightbox() {
     const box = document.getElementById('lightbox');
     if (!box) return;
-    const big = box.querySelector('img');
+    const big   = box.querySelector('img');
+    const stage = box.querySelector('.lb-stage');
+    const counter = box.querySelector('.lb-counter');
+    const btnPrev  = box.querySelector('.lb-prev');
+    const btnNext  = box.querySelector('.lb-next');
+    const btnClose = box.querySelector('.lb-close');
 
-    const open = (src, alt) => {
-      big.src = src;
-      big.alt = alt || '';
+    let group = [];   // [{src, alt}, …]
+    let idx   = 0;
+
+    const render = () => {
+      const item = group[idx];
+      if (!item) return;
+      big.src = item.src;
+      big.alt = item.alt || '';
+      const many = group.length > 1;
+      btnPrev.hidden = !many;
+      btnNext.hidden = !many;
+      counter.hidden = !many;
+      if (many) counter.textContent = `${idx + 1} / ${group.length}`;
+    };
+
+    const open = (imgs, startIdx) => {
+      group = [...imgs].map((im) => ({
+        src: im.currentSrc || im.src,
+        alt: im.alt
+      }));
+      idx = startIdx;
+      render();
       box.hidden = false;
       box.setAttribute('aria-hidden', 'false');
       document.documentElement.style.overflow = 'hidden';
@@ -112,15 +138,73 @@
       big.removeAttribute('src');
       document.documentElement.style.overflow = '';
     };
+    const next = () => { idx = (idx + 1) % group.length; render(); };
+    const prev = () => { idx = (idx - 1 + group.length) % group.length; render(); };
 
-    document.querySelectorAll('.menus img, .gallery img').forEach((img) => {
-      img.addEventListener('click', () => open(img.currentSrc || img.src, img.alt));
+    document.querySelectorAll('.menus, .gallery').forEach((grid) => {
+      const imgs = [...grid.querySelectorAll('img')];
+      imgs.forEach((img, i) => {
+        img.addEventListener('click', () => open(imgs, i));
+      });
     });
 
-    box.addEventListener('click', close);
+    // Clicks inside the lightbox: backdrop closes; everything else doesn't.
+    box.addEventListener('click', (e) => {
+      if (e.target === box || e.target === stage) close();
+    });
+    btnClose.addEventListener('click', (e) => { e.stopPropagation(); close(); });
+    btnNext .addEventListener('click', (e) => { e.stopPropagation(); next();  });
+    btnPrev .addEventListener('click', (e) => { e.stopPropagation(); prev();  });
+
     addEventListener('keydown', (e) => {
-      if (!box.hidden && e.key === 'Escape') close();
+      if (box.hidden) return;
+      if (e.key === 'Escape') { close(); }
+      else if (e.key === 'ArrowRight') { e.preventDefault(); next(); }
+      else if (e.key === 'ArrowLeft')  { e.preventDefault(); prev(); }
     });
+
+    // Mobile: tap on the image advances. Detect via pointer media query
+    // so desktop mouse clicks on the image don't accidentally navigate.
+    const isCoarse = matchMedia('(hover: none) and (pointer: coarse)');
+    big.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (isCoarse.matches && group.length > 1) next();
+    });
+
+    // Touch swipe (horizontal). Threshold: 50px or 15% of viewport width.
+    let tx = 0, ty = 0, tracking = false;
+    box.addEventListener('touchstart', (e) => {
+      if (e.touches.length !== 1) return;
+      tx = e.touches[0].clientX; ty = e.touches[0].clientY; tracking = true;
+    }, { passive: true });
+    box.addEventListener('touchend', (e) => {
+      if (!tracking) return;
+      tracking = false;
+      const t = e.changedTouches[0];
+      const dx = t.clientX - tx, dy = t.clientY - ty;
+      const threshold = Math.max(50, innerWidth * 0.15);
+      if (Math.abs(dx) > threshold && Math.abs(dx) > Math.abs(dy) * 1.5) {
+        if (dx < 0) next(); else prev();
+      }
+    }, { passive: true });
+  }
+
+  // ─── #prenota → scroll to contact section ─────────────────────────────
+  // The hash points at the lead <p>, but visually we want the "Scrivimi"
+  // title in view, so retarget the scroll to the contact section.
+  function bindPrenotaScroll() {
+    const contact = document.getElementById('contact');
+    if (!contact) return;
+    const go = () => {
+      if (location.hash !== '#prenota') return;
+      // Defer past the browser's own hash-jump.
+      requestAnimationFrame(() => contact.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+    };
+    addEventListener('hashchange', go);
+    if (location.hash === '#prenota') {
+      if (document.readyState === 'complete') go();
+      else addEventListener('load', go);
+    }
   }
 
   function bindLocale() {
@@ -135,6 +219,7 @@
     bindMobileNav();
     bindLocale();
     bindLightbox();
+    bindPrenotaScroll();
 
     const initial = detect();
     const pre = document.documentElement.dataset.prerender;

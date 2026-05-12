@@ -88,8 +88,3 @@ echo "✓ deployed $STAMP"
 
 # TODO 
 # On brave, dark bg on white text fixme 
-# Cambia immagini
-# Mini slideshow gallery for the first 3 sectioins
-# Magari gallery anche nelle schisete
-# Also gallery for meny and Assaggio
-# Broadcast List on WHatsApp
