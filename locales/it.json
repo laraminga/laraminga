@@ -37,7 +37,7 @@
     "items": [
       {
         "title": "Home restaurant",
-        "body": "Vieni a cena da me. Sala interna quando fa freddo, terrazza con vista quando c'è il sole. Massimo otto persone.",
+        "body": "Vieni a cena da me. Sala interna quando fa freddo, terrazza con vista quando c'è il sole. Massimo otto persone. Solo su prenotazione.",
         "details": [
           "Venerdì e sabato, intorno alle 20",
           "Menù settimanale di quattro portate",
@@ -87,14 +87,14 @@
   },
   "contact": {
     "title": "Scrivimi",
-    "lead": "Sentiamoci su WhatsApp:",
+    "lead": "Per prenotare o per ricevere i menu settimanali, scrivimi su WhatsApp:",
     "leadNote": "Solo messaggi, niente chiamate, grazie.",
     "whatsappLabel": "+39 347 145 7329",
     "emailIntro": "Anche un'email va benissimo:"
   },
   "footer": {
     "tagline": "Cucina di stagione, fatta a mano, in Lunigiana.",
-    "structureLink": "La struttura La Raminga",
+    "structureLink": "La Raminga Struttura",
     "rights": "© 2026 La Raminga · Valentina Del Frate"
   },
   "whatsappMessage": "Ciao Valentina! Ho visto il sito di La Raminga e vorrei avere informazioni."
