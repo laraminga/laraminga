@@ -25,11 +25,22 @@ const SITE = {
   phone: '+393471457329',
   email: 'vale.sfra@hotmail.it',
   defaultLocale: 'it',
-  region: 'Tuscany',
-  locality: 'Lunigiana',
+  // Postal address of the home restaurant.
+  streetAddress: 'SP14, 191',
+  postalCode: '54010',
+  locality: 'Podenzana',
+  region: 'MS',
   country: 'IT',
+  // Approximate coordinates of Podenzana (Lunigiana, Italy) — used for
+  // GeoCoordinates structured data + ICBM/geo meta tags.
+  lat: 44.197,
+  lng: 9.937,
   cuisines: ['Italian', 'Mediterranean', 'Vegetarian', 'Home Cooking'],
   priceRange: '€€',
+  external: [
+    'https://ramingapodenzana.wordpress.com',
+    'https://maps.app.goo.gl/qMVjAmTj5a1HMa598',
+  ],
 };
 
 // ─── paths + helpers ─────────────────────────────────────────────────────
@@ -263,25 +274,81 @@ function preRender(html, locale) {
 }
 
 function renderJsonLd(it) {
+  const services = it.services?.items || [];
+  const offer = (svc) => ({
+    '@type': 'Offer',
+    itemOffered: { '@type': 'Service', name: svc.title, description: svc.body },
+    areaServed: { '@type': 'AdministrativeArea', name: 'Lunigiana' },
+  });
   const data = {
     '@context': 'https://schema.org',
-    '@type': 'Restaurant',
-    name: 'La Raminga',
-    description: it.meta?.description || '',
-    url: SITE.url + '/',
-    image: `${SITE.url}/img/${SITE.hero}.jpeg`,
-    telephone: SITE.phone,
-    email: SITE.email,
-    address: {
-      '@type': 'PostalAddress',
-      addressRegion: SITE.region,
-      addressLocality: SITE.locality,
-      addressCountry: SITE.country,
-    },
-    servesCuisine: SITE.cuisines,
-    priceRange: SITE.priceRange,
-    inLanguage: ['it', 'en'],
-    founder: { '@type': 'Person', name: 'Valentina Del Frate' },
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        '@id': `${SITE.url}/#website`,
+        url: `${SITE.url}/`,
+        name: 'La Raminga',
+        inLanguage: ['it', 'en'],
+        publisher: { '@id': `${SITE.url}/#person` },
+      },
+      {
+        '@type': 'Person',
+        '@id': `${SITE.url}/#person`,
+        name: 'Valentina Del Frate',
+        jobTitle: 'Chef',
+        worksFor: { '@id': `${SITE.url}/#restaurant` },
+      },
+      {
+        '@type': ['Restaurant', 'LocalBusiness'],
+        '@id': `${SITE.url}/#restaurant`,
+        name: 'La Raminga',
+        alternateName: ['La Raminga Home Restaurant', 'Home restaurant La Raminga'],
+        description: it.meta?.description || '',
+        url: `${SITE.url}/`,
+        image: [
+          `${SITE.url}/img/${SITE.hero}.jpeg`,
+          `${SITE.url}/img/tagliatelle-green-pesto-walnuts-parmesan.jpeg`,
+          `${SITE.url}/img/savory-cheesecake-plated-above-sauce.jpeg`,
+        ],
+        telephone: SITE.phone,
+        email: SITE.email,
+        priceRange: SITE.priceRange,
+        currenciesAccepted: 'EUR',
+        paymentAccepted: 'Cash',
+        servesCuisine: SITE.cuisines,
+        acceptsReservations: 'True',
+        founder: { '@id': `${SITE.url}/#person` },
+        address: {
+          '@type': 'PostalAddress',
+          streetAddress: SITE.streetAddress,
+          postalCode: SITE.postalCode,
+          addressLocality: SITE.locality,
+          addressRegion: SITE.region,
+          addressCountry: SITE.country,
+        },
+        geo: { '@type': 'GeoCoordinates', latitude: SITE.lat, longitude: SITE.lng },
+        areaServed: [
+          { '@type': 'Place', name: 'Lunigiana' },
+          { '@type': 'AdministrativeArea', name: 'Massa-Carrara' },
+          { '@type': 'AdministrativeArea', name: 'Tuscany' },
+        ],
+        openingHoursSpecification: [
+          {
+            '@type': 'OpeningHoursSpecification',
+            dayOfWeek: ['Friday', 'Saturday'],
+            opens: '19:30',
+            closes: '23:30',
+          },
+        ],
+        sameAs: SITE.external,
+        hasOfferCatalog: {
+          '@type': 'OfferCatalog',
+          name: it.services?.title || 'Servizi',
+          itemListElement: services.map(offer),
+        },
+        inLanguage: ['it', 'en'],
+      },
+    ],
   };
   return `<script type="application/ld+json">${JSON.stringify(data)}</script>`;
 }
@@ -291,10 +358,15 @@ function renderJsonLd(it) {
 async function writeSitemap() {
   log('write sitemap.xml');
   const today = new Date().toISOString().slice(0, 10);
+  const images = [
+    ...(await listJpegs('img')),
+    ...(await listJpegs('menu')),
+  ];
   const xml = [
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" ',
-    'xmlns:xhtml="http://www.w3.org/1999/xhtml">',
+    'xmlns:xhtml="http://www.w3.org/1999/xhtml" ',
+    'xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">',
     '<url>',
     `<loc>${SITE.url}/</loc>`,
     `<lastmod>${today}</lastmod>`,
@@ -303,10 +375,19 @@ async function writeSitemap() {
     `<xhtml:link rel="alternate" hreflang="it" href="${SITE.url}/"/>`,
     `<xhtml:link rel="alternate" hreflang="en" href="${SITE.url}/"/>`,
     `<xhtml:link rel="alternate" hreflang="x-default" href="${SITE.url}/"/>`,
+    ...images.map((rel) => `<image:image><image:loc>${SITE.url}/${rel}</image:loc></image:image>`),
     '</url>',
     '</urlset>',
   ].join('');
   await fs.writeFile(pd('sitemap.xml'), xml);
+}
+
+async function listJpegs(dir) {
+  const entries = await fs.readdir(p(dir), { withFileTypes: true });
+  return entries
+    .filter((e) => e.isFile() && /\.jpe?g$/i.test(e.name))
+    .map((e) => `${dir}/${e.name}`)
+    .sort();
 }
 
 async function writeRobots() {
